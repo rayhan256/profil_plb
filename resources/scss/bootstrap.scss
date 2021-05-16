@@ -1,0 +1,85 @@
+/*!
+ * Bootstrap v5.0.0-beta2 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "utilities";
+
+// Layout & components
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "containers";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "accordion";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "alert";
+@import "progress";
+@import "list-group";
+@import "close";
+@import "toasts";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "spinners";
+@import "costume";
+@import "loader";
+@import "costumeSlider";
+@import "testimonial";
+@import "home";
+
+// Helpers
+@import "helpers";
+
+// Utilities
+@import "utilities/api";
+// scss-docs-end import-stack
+
+section {
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.btn {
+    letter-spacing: 1 !important;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar-nav {
+    padding: 0 1em 0 1em;
+}
+
+select {
+    &:focus {
+        outline: 0px im !important;
+        box-shadow: none !important;
+    }
+}
+
+.form-select {
+    background: none;
+}
