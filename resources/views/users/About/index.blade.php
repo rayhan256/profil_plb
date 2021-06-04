@@ -26,7 +26,8 @@
                     <li class="list-vision-mission">@lang('about.list_vision.2')</li>
                     <li class="list-vision-mission">@lang('about.list_vision.3')</li>
                 </ul>
-                <button class="btn btn-outline-primary ms-5 mt-3" data-bs-toggle="modal" data-bs-target="#modalVision">@lang('about.see_more')</button>
+                <button class="btn btn-outline-primary ms-5 mt-3" data-bs-toggle="modal"
+                    data-bs-target="#modalVision">@lang('about.see_more')</button>
             </div>
             <div class="col">
                 <img src="{{asset('assets/images/kegiatan.jpg')}}" class="rounded sejarah-image ms-5" width="350"
@@ -44,7 +45,7 @@
         <div class="row mt-5">
             <div class="col-md-6 col-sm-12">
                 <img src="{{asset('assets/images/foto1.jpg')}}" class="img-fluid rounded sejarah-image ms-5" width="400"
-                height="300" alt="Sejarah LP3I">
+                    height="300" alt="Sejarah LP3I">
             </div>
             <div class="col-md-5 col-sm-12">
                 <ul class="parent-vision-mission">
@@ -52,7 +53,19 @@
                     <li class="list-vision-mission">@lang('about.list_mission.2')</li>
                     <li class="list-vision-mission">@lang('about.list_mission.3')</li>
                 </ul>
-                <button class="btn btn-outline-primary ms-4 mt-3" data-bs-toggle="modal" data-bs-target="#modalMission">@lang('about.see_more')</button>
+                <button class="btn btn-outline-primary ms-4 mt-3" data-bs-toggle="modal"
+                    data-bs-target="#modalMission">@lang('about.see_more')</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="text-center mb-4">Organization Structure</h2>
+        <div class="row">
+            <div class="col-12">
+                @foreach ($structure as $item)
+                <img src="{{asset('uploads/structure/'.$item->image)}}" class="img-fluid rounded w-100"
+                    alt="{{$item->image}}">
+                @endforeach
             </div>
         </div>
     </section>

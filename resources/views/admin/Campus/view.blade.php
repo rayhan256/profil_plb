@@ -14,7 +14,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-12">
-            <img src="{{asset('storage/campus/'.$campus->image)}}" class=" rounded"
+            <img src="{{asset('uploads/campus/'.$campus->image)}}" class=" rounded"
                 style="width: 1000px; height: 350px; object-fit: cover" alt="">
         </div>
     </div>

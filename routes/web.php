@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrganizationStructureController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SliderController;
@@ -68,6 +69,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // route prodi
         Route::get('/prodi', [ProdiController::class, 'index']);
+        Route::get('/prodi/create', [ProdiController::class, 'create_view']);
+        Route::get('/prodi/update/{id}', [ProdiController::class, 'update_view']);
+        Route::post('/prodi/post', [ProdiController::class, 'create']);
+        Route::post('/prodi/update', [ProdiController::class, 'update_prodi']);
+        Route::get('/prodi/delete/{id}', [ProdiController::class, 'delete_prodi']);
 
         // route ukm
         Route::get('/ukm', [UkmController::class, 'index']);
@@ -81,6 +87,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/partner', [PartnerController::class, 'index']);
         Route::post('/partner/insert', [PartnerController::class, 'addPartner']);
         Route::get('/partner/delete/{id}', [PartnerController::class, 'deletePartner']);
+
+        //route struktur organisasi
+        Route::get('/organization', [OrganizationStructureController::class, 'index']);
+        Route::post('/organization/post', [OrganizationStructureController::class, 'addStructure']);
+        Route::get('/organization/{id}', [OrganizationStructureController::class, 'delete_structure']);
 
         //Testimonial
         Route::get('/testimonial', [TestimonialController::class, 'index']);

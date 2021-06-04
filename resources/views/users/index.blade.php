@@ -24,7 +24,7 @@
           <div class="image-container">
               <img
                   src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs="
-                  data-src={{asset('storage/slider/'.$item->filename)}}
+                  data-src={{asset('uploads/slider/'.$item->filename)}}
                   alt="bracelets-bijoux-createur" 
                   class="image queue-loading as-background"/>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@
         <section id="news">
             <div class="row mb-3">
                 <div class="col-12 text-center">
-                    <h1>{{$tr->translate("Berita dan Kegiatan Terbaru")}}</h1>
+                    <h1>{{$tr->translate("Berita dan Kegiatan Terbaru" ?? "Berita dan Kegiatan Terbaru")}}</h1>
                 </div>
             </div>
             <hr class="mt-3 mb-3 bg-primary">
@@ -101,16 +101,16 @@
                 <div class="col-md-3 my-2 col-sm-12">
                     <div class="card bg-white rounded border-0">
                         <div class="card-image">
-                            <img src="{{asset('storage/articles/'.$article->image)}}" alt="news" height="250"
-                                class="card-img-top">
+                            <img src="{{asset('uploads/article/'.$article->image)}}" alt="news" height="250"
+                                class="card-img-top rounded">
                             <div class="card-body mt-4" style="padding: 0;">
                                 <div class="card-title">
-                                    {{$tr->translate($article->title)}}
+                                    {{$tr->translate($article->title) ?? $article->title}}
                                 </div>
             
                                 <div class="mt-3 float-right">
                                     <a href="{{$locale}}/articles/{{$article->id}}" class="btn btn-outline-primary btn-sm">
-                                        {{$tr->translate('Read More')}}
+                                        {{$tr->translate('Read More') ?? "Read More"}}
                                     </a>
                                 </div>
                             </div>
@@ -119,11 +119,11 @@
                 </div>
                 @endforeach
             </div>
-            <div class="row mt-4">
+            {{-- <div class="row mt-4">
                 <div class="col-12">
                     {{$articles->links()}}
                 </div>
-            </div>
+            </div> --}}
     </div>
     </section>
     </div>

@@ -6014,8 +6014,10 @@ textarea.form-control-lg {
   border: none;
   cursor: pointer;
 }
-.article-card .card-img-top img {
+.article-card .card-img-top {
   border-radius: 20px;
+  max-height: 200px;
+  min-height: 200px;
 }
 .article-card .card-body {
   margin-top: 1.5em;
@@ -6041,22 +6043,33 @@ textarea.form-control-lg {
 }
 
 .prodi {
-  margin: 0;
-  padding: 0;
   background-color: #4e7436;
   min-height: 500px;
   width: 100%;
+  border-radius: 0 0 50px 50px;
+}
+.prodi .main {
+  display: none;
 }
 .prodi .prodi-wrapper .card {
   margin-top: 2em;
   margin-bottom: 2em;
   border-radius: 30px;
+  background-color: transparent !important;
+  border: none;
 }
 .prodi .prodi-wrapper .card .card-img-top {
   max-height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 30px;
+  max-width: 200px;
+  height: 200px;
+  width: 200px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  border-radius: 30px 30px 0 0;
+}
+.prodi .prodi-wrapper .card .card-body {
+  color: white;
+  border-radius: 0 0 30px 30px;
 }
 
 .float {
@@ -6078,19 +6091,79 @@ textarea.form-control-lg {
   margin-top: 16px;
 }
 
-.wrapper-education {
-  position: relative;
+.career-bg-wrapper {
   margin: 0;
   padding: 0;
 }
+
+.testimonial {
+  margin: 0;
+  background-color: #50653b;
+  min-height: 300px;
+  border-radius: 0 0 50px 50px;
+}
+.testimonial .testimonial-wrapper {
+  width: 100%;
+  max-height: 500px;
+}
+.testimonial .testimonial-wrapper .testimonial-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 360px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+}
+.testimonial .testimonial-wrapper .testimonial-body {
+  text-align: center;
+  color: #fafafa;
+}
+.testimonial .testimonial-wrapper .testimonial-body .title {
+  font-weight: bold;
+  font-size: 18px;
+}
+.testimonial .testimonial-wrapper .testimonial-body .titlefor {
+  font-size: 14px;
+}
+.testimonial .testimonial-wrapper .testimonial-body .quote {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: lighter;
+}
+.testimonial .testimonial-wrapper .testimonial-body .quotefor {
+  font-size: 12px;
+}
+
+.partner {
+  margin: 0;
+  background-color: #50653b;
+  min-height: 300px;
+}
+.partner .container .card-partner {
+  border-radius: 2.875rem;
+  max-height: 60px;
+  height: 4.5rem;
+  background-color: rgba(255, 255, 255, 0.94);
+}
+.partner .container .card-partner .card-img-top {
+  max-height: 60px;
+  max-width: 60px;
+  min-width: 60px;
+}
+
+.wrapper-education {
+  background-image: url("/assets/images/latar.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 140vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 .wrapper-education .education-text-wrapper {
-  position: absolute;
-  width: 40%;
-  top: 40%;
-  bottom: 0;
-  left: 55%;
-  right: 5%;
-  z-index: 10;
+  margin-top: 40%;
+  margin-left: 18%;
 }
 .wrapper-education .education-text-wrapper p {
   color: #adb5bd;
@@ -6257,6 +6330,118 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .arrows {
+    display: none;
+  }
+
+  .prodi .prodi-wrapper {
+    display: none;
+  }
+  .prodi .main {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-height: 500px;
+  }
+  .prodi .main .testimonial-wrapper {
+    width: 100%;
+    max-height: 500px;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 360px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0 auto;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-body {
+    text-align: center;
+    color: #fafafa;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-body .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-body .titlefor {
+    font-size: 14px;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-body .quote {
+    font-style: italic;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+  .prodi .main .testimonial-wrapper .testimonial-body .quotefor {
+    font-size: 12px;
+  }
+
+  .wrapper-education {
+    background-image: url("/assets/images/latar-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 47vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .wrapper-education .education-text-wrapper {
+    margin-top: 50%;
+    margin-left: 1em;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    text-align: center;
+    color: white;
+  }
+  .wrapper-education .education-text-wrapper h1, .wrapper-education .education-text-wrapper .h1 {
+    font-size: 14px;
+  }
+  .wrapper-education .education-text-wrapper p {
+    font-size: 10px;
+    color: white;
+  }
+  .wrapper-education .education-text-wrapper .btn {
+    display: none;
+  }
+
+  .testimonial {
+    margin: 0;
+    background-color: #50653b;
+    min-height: 300px;
+    border-radius: 0 0 50px 50px;
+  }
+  .testimonial .testimonial-wrapper {
+    width: 100%;
+    max-height: 500px;
+  }
+  .testimonial .testimonial-wrapper .testimonial-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 360px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0 auto;
+  }
+  .testimonial .testimonial-wrapper .testimonial-body {
+    text-align: center;
+    color: #fafafa;
+  }
+  .testimonial .testimonial-wrapper .testimonial-body .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .testimonial .testimonial-wrapper .testimonial-body .titlefor {
+    font-size: 14px;
+  }
+  .testimonial .testimonial-wrapper .testimonial-body .quote {
+    font-style: italic;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+  .testimonial .testimonial-wrapper .testimonial-body .quotefor {
+    font-size: 12px;
+  }
+
   .wrapper {
     margin: 0 !important;
     width: 100%;
@@ -7124,12 +7309,6 @@ h3,
     page-break-after: avoid;
   }
 }
-html,
-body {
-  margin: 0;
-  font-family: "Karla", sans-serif;
-}
-
 .slideshow {
   overflow: hidden;
   position: relative;
@@ -7184,7 +7363,7 @@ body {
   height: 100%;
   background-position: center;
   z-index: 1;
-  background-size: contain;
+  background-size: cover;
   image-rendering: optimizeQuality;
   will-change: left, right;
 }
@@ -7211,10 +7390,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 105%;
-  min-height: 105%;
-  width: auto;
-  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
   transition: 2s filter linear;

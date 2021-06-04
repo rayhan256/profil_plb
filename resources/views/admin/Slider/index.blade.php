@@ -55,7 +55,7 @@
                 @foreach ($sliders as $slider)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$slider->filename}}</td>
+                    <td><img src="{{asset('uploads/slider/'.$slider->filename)}}" width="150" height="150" class="rounded" alt=""></td>
                     <td>
                         <a href="/cms/en/slider/delete/{{$slider->id}}" class="btn btn-danger">Delete</a>
                     </td>

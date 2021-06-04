@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Politeknik LP3I Bandung</title>
 </head>
@@ -16,7 +17,6 @@
     }
 
 </style>
-
 <body>
     <header class="mt-5">
         <div class="container">
@@ -48,7 +48,7 @@
         <section style="margin: 0; padding: 0;">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <img src="{{asset('storage/campus/'. $campus->image)}}" alt="{{$campus->campus_name}}"
+                    <img src="{{asset('uploads/campus/'. $campus->image)}}" alt="{{$campus->campus_name}}"
                         class="img-fluid rounded" style="border-radius: 30px;">
                 </div>
                 <div class="col-md-6 col-sm-12 mt-5">
@@ -69,7 +69,7 @@
                 </div>
             </div>
         </section>
-        <section>
+        {{-- <section>
             <div class="row mt-4 mb-4">
                 <div class="col-12">
                     <h3 class="text-title text-center">Courses</h3>
@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section>
             <div class="row mt-4 mb-4">
                 <div class="col-12">

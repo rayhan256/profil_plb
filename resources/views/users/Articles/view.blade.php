@@ -16,10 +16,11 @@
     <title>Politeknik LP3I Bandung</title>
 </head>
 @php
-use Stichoza\GoogleTranslate\GoogleTranslate;;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+$locale = App::getLocale();
 $tr = new GoogleTranslate();
 $tr->setSource();
-$tr->setTarget($locale['lang']);
+$tr->setTarget($locale);
 @endphp
 
 <body>
@@ -45,9 +46,7 @@ $tr->setTarget($locale['lang']);
     </header>
     <div class="container">
         <section>
-            <div style="width: 50%">
-                <h4 class="text-title">{{$tr->translate($article->title)}}</h4>
-            </div>
+            <h4 class="text-title">{{$tr->translate($article->title)}}</h4>
             <div class="d-flex flex-row mt-4 justify-content-between">
                 <h5 class="text-muted">{!! date('W F Y', strtotime($article->date)) !!}, By {{$article->author}}</h5>
                 <div style="width: 200px" class="d-flex flex-row">
@@ -65,13 +64,13 @@ $tr->setTarget($locale['lang']);
         </section>
         <section>
             <div class="row">
-                <div class="col-md-12 w-100">
-                    <img src="{{asset('storage/articles/'. $article->image)}}" alt="{{$article->title}}"
-                        class="img-fluid" style="border-radius: 30px;">
+                <div class="col-md-12">
+                    <img src="{{asset('uploads/article/'. $article->image)}}" alt="{{$article->title}}"
+                        class="img-fluid w-100" style="border-radius: 30px;">
                 </div>
                 <div class="col-md-12">
                     <div class="my-3">
-                     
+
                         <p class="text-muted">{!! $article->desc !!}</p>
                     </div>
                 </div>
@@ -88,7 +87,7 @@ $tr->setTarget($locale['lang']);
                 @foreach ($articles as $b)
                 <div class="ms-3 mt-5 col-md-3 col-sm-12">
                     <div class="card border-0">
-                        <div class="card-img"><img src="{{asset('storage/articles/'.$b->image)}}" class="card-img-top"
+                        <div class="card-img"><img src="{{asset('uploads/article/'.$b->image)}}" class="card-img-top"
                                 style="width: 100%; height: 200px; object-position: center; object-fit: fill; background-position: center;"
                                 alt="{{$b->title}}"></div>
                         <div class="card-body p-0 mt-4">
@@ -97,7 +96,7 @@ $tr->setTarget($locale['lang']);
                                     {!! date('D, w F Y', strtotime($b->date)) !!}
                                 </div>
                             </div>
-                            <a href="/articles/{{$b->id}}"
+                            <a href="{{$locale}}/articles/{{$b->id}}"
                                 class="btn text-primary p-0 text-left btn-sm">{{$tr->translate("Read More")}}</a>
                         </div>
                     </div>

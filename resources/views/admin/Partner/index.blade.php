@@ -46,9 +46,9 @@
             <tr>
                 <td>{{$no++}}</td>
                 <td>{{$i->name}}</td>
-                <td><img src="{{asset('storage/partner/'.$i->logo)}}" width="200" height="200" alt=""></td>
+                <td><img src="{{asset('uploads/partner/'.$i->logo)}}" width="200" height="200" class="rounded" alt=""></td>
                 <td>
-                    <a href="/cms/en/partner/delete/{{}}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/cms/en/partner/delete/{{$i->id}}" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
             @endforeach

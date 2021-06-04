@@ -50,7 +50,6 @@
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
@@ -70,6 +69,10 @@
                         <a class="nav-link" href="{{ url('/cms/en/campus') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Kampus
+                        </a>
+                        <a class="nav-link" href="{{ url('/cms/en/organization') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-people"></i></div>
+                            Struktur Organisasi
                         </a>
                         <a class="nav-link" href="{{ url('/cms/en/partner') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-office"></i></div>

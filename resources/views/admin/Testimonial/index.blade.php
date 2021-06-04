@@ -27,7 +27,7 @@
           <td>{{$t->title}}</td>
           <td>{{$t->name}}</td>
           <td>{{$t->desc}}</td>
-          <td><img src="{{asset('storage/testimonial/'.$t->image)}}" width="100" height="100" class="img-fluid" alt=""></td>
+          <td><img src="{{asset('uploads/testimonial/'.$t->image)}}" width="100" height="100" class="img-fluid" alt=""></td>
           <td>{{$t->position}}</td>
           <th>
             <a href="/cms/en/testimonial/update/{{$t->id}}" class="btn btn-outline-primary">Update</a>

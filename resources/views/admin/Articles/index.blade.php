@@ -15,6 +15,7 @@
           <th>Title</th>
           <th>Date</th>
           <th>Author</th>
+          <th>Type</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -26,6 +27,7 @@
           <td>{{$a->title}}</td>
           <td>{!! date('W F Y', strtotime($a->date)) !!}</td>
           <td>{{$a->author}}</td>
+          <td>{{$a->type ?? "Kosong"}}</td>
           <td>
             <a href="/cms/en/articles/view/{{$a->id}}" class="btn btn-outline-success">View</a>
             <a href="/cms/en/articles/delete/{{$a->id}}" class="btn btn-danger">Delete</a>

@@ -30,7 +30,7 @@ class TestimonialController extends Controller
 
         if ($req->hasFile('image')) {
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('testimonial', $filename, 'public');
+            $image->move(public_path("/uploads/testimonial"), $filename);
 
             $testi->title = $title;
             $testi->name = $name;
@@ -59,12 +59,12 @@ class TestimonialController extends Controller
         $position = $req->input('position');
 
         $testi = Testimonial::find($id);
-        $oldFile = storage_path('app/public/testimonial/' . $testi->image);
+        $oldFile = asset("uploads/testimonial/" . $testi->image);
 
         if ($req->hasFile('image')) {
             if (File::exists($oldFile)) {
                 $filename = time() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('testimonial', $filename, 'public');
+                $image->move(public_path("/uploads/testimonial"), $filename);
 
                 $testi->title = $title ? $title : $testi->title;
                 $testi->name = $name ? $name : $testi->name;
@@ -89,7 +89,7 @@ class TestimonialController extends Controller
     public function delete($id)
     {
         $testi = Testimonial::find($id);
-        $filename = storage_path('app/public/testimonial/' . $testi->image);
+        $filename = asset("uploads/testimonial/" . $testi->image);
         if (File::exists($filename)) {
             File::delete($filename);
             $testi->delete();

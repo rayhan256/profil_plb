@@ -26,14 +26,12 @@
     <section style="margin-top: 1em;">
         <div class="row">
             @foreach ($articles as $i)
-            <div class="col-md-3 col-sm-12">
+            <div class="col-md-3 col-sm-12 mt-3">
                 <div class="card article-card">
-                    <div class="card-img-top">
-                        <a href="/blogs/view/{{$i->id}}"><img src="{{asset('storage/articles/').'/'.$i->image}}" width="250" height="200" style="background-size: cover;" alt=""></a>
-                    </div>
+                        <a href="/blogs/view/{{$i->id}}"><img src="{{asset('uploads/article/').'/'.$i->image}}" class="card-img-top" alt=""></a>
                     <div class="card-body">
-                        <div class="card-title h4">{{$tr->translate($i->title)}}</div>
-                        <p>{{$i->author}}, {!! date('W F Y', strtotime($i->date)) !!}</p>
+                        <div class="card-title">{{$tr->translate($i->title)}}</div>
+                        <p class="card-text">{{$i->author}}, {!! date('w F Y', strtotime($i->date)) !!}</p>
                     </div>
                 </div>
             </div>

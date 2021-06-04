@@ -17,6 +17,8 @@ $locale = App::getLocale();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
     <meta name="description"
         content="Institusi Pendidikan Vokasi Bisnis & Teknologi dengan Ilmu Terapan untuk Indonesia." />
     <title>Politeknik LP3I Bandung</title>
@@ -58,30 +60,30 @@ $locale = App::getLocale();
                     <ul class="navbar-nav align-self-center me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page"
-                                href="/{{$locale}}">{{$tr->translate('Beranda')}}</a>
+                                href="/{{$locale}}">{{$tr->translate('Beranda') ?? "Beranda"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/about">{{$tr->translate('About')}}</a>
+                            <a class="nav-link" href="/{{$locale}}/about">{{ucfirst($tr->translate('About')) ?? "Tentang"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/blogs">{{$tr->translate('Articles')}}</a>
+                            <a class="nav-link" href="/{{$locale}}/blogs">{{ucfirst($tr->translate('Articles')) ?? "Artikel"}}</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="/{{$locale}}/career_centre">{{$tr->translate('Career Centre')}}</a>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/link_and_match">{{$tr->translate('Education')}}</a>
+                            <a class="nav-link" href="/{{$locale}}/link_and_match">{{ucfirst($tr->translate('Education')) ?? "Pendidikan"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/gallery">{{$tr->translate('Gallery')}}</a>
+                            <a class="nav-link" href="/{{$locale}}/gallery">{{ucfirst($tr->translate('Gallery')) ?? "Galeri"}}</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/career_centre">Carrier Center</a>
-                        </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/{{$locale}}/career_centre">Pusat Karir</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                {{$tr->translate('Journal')}}
+                                {{ucfirst($tr->translate('Journal'))}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item"
@@ -99,7 +101,7 @@ $locale = App::getLocale();
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="true">
-                                {{$tr->translate('Kampus')}}
+                                {{ucfirst($tr->translate('Kampus')) ?? "Kampus"}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <?php $campus = Campus::all() ?>

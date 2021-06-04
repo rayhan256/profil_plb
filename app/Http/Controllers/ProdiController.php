@@ -33,7 +33,7 @@ class ProdiController extends Controller
         if ($req->hasFile('image')) {
             $image = $req->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('/uploads'), $filename);
+            $image->move(public_path('/uploads/prodi'), $filename);
             $prodi->name = $name;
             $prodi->image = $filename;
             $prodi->save();
@@ -56,6 +56,7 @@ class ProdiController extends Controller
                 File::delete($oldFile);
             }
             $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path("/uploads/prodi"), $filename);
             $prodi->name = $name ?? $prodi->name;
             $prodi->image = $filename;
             $prodi->save();
@@ -69,7 +70,7 @@ class ProdiController extends Controller
     public function delete_prodi($id)
     {
         $prodi = Prodi::find($id);
-        $oldFile = asset('uploads/' . $prodi->image);
+        $oldFile = asset('uploads/prodi/' . $prodi->image);
         if (File::exists($oldFile)) {
             File::delete($oldFile);
         }

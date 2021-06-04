@@ -23,7 +23,7 @@
             <tr>
                 <td>{{$index}}</td>
                 <td>{{$item->name}}</td>
-                <td><img src="{{asset('uploads/'. $item->image)}}" width="150" height="150" alt=""></td>
+                <td><img src="{{asset('uploads/'. $item->image)}}" width="150" height="150" class="rounded" alt=""></td>
                 <td>
                     <a href="/cms/en/ukm/update/{{$item->id}}" class="btn btn-outline-primary">Update</a>
                     <a href="/cms/en/ukm/delete/{{$item->id}}" class="btn btn-danger">Delete</a>

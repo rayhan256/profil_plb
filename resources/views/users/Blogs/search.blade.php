@@ -10,8 +10,8 @@
             <div class="col-md-3 col-sm-12">
                 <div class="card article-card">
                     <div class="card-img-top">
-                        <img src="{{asset('storage/articles/').'/'.$i->image}}" width="250" height="200"
-                            style="background-size: cover;" alt="">
+                        <a href="/blogs/view/{{$i->id}}"><img src="{{asset('uploads/article/').'/'.$i->image}}" width="250" height="200"
+                            style="background-size: cover;" alt=""></a>
                     </div>
                     <div class="card-body">
                         <div class="card-title h4">{{$i->title}}</div>

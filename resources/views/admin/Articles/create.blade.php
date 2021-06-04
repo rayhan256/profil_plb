@@ -14,6 +14,14 @@
 			<input type="text" name="title" class="form-control">
 		</div>
 		<div class="form-group">
+			<label for="">Theme</label>
+			<select name="type" id="" class="form-control">
+				<option value="Event">Event</option>
+				<option value="Career">Career</option>
+				<option value="Reminder">Reminder</option>
+			</select>
+		</div>
+		<div class="form-group">
 			<label for="">Date</label>
 			<input type="date" name="date" id="" class="form-control">
 		</div>

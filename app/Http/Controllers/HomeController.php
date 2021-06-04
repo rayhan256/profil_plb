@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Campus;
 use App\Models\Ipaddress;
+use App\Models\OrganizationStructure;
+use App\Models\Partner;
+use App\Models\Prodi;
 use App\Models\Slider as ModelsSlider;
 use App\Models\Testimonial;
 use App\Models\Ukm;
@@ -39,7 +42,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('users.About.index');
+        $structure = OrganizationStructure::all();
+        return view('users.About.index', ["structure" => $structure]);
     }
 
     public function blogs()
@@ -65,12 +69,16 @@ class HomeController extends Controller
     public function link_and_match()
     {
         $ukm = Ukm::all();
-        return view('users.LinkandMatch.index', ['ukm' => $ukm]);
+        $prodi = Prodi::all();
+        return view('users.LinkandMatch.index', ['ukm' => $ukm, 'prodi' => $prodi]);
     }
 
     public function career_centre()
     {
-        return view('users.Career.index');
+        $career = Article::query()->where('type', '=', 'Career')->paginate(4);
+        $testimonial = Testimonial::paginate(5);
+        $partner = Partner::all();
+        return view('users.Career.index', ['careers' => $career, 'testimonial' => $testimonial, 'partner' => $partner]);
     }
 
     public function gallery()

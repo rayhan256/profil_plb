@@ -27,17 +27,18 @@ class ArticleController extends Controller
         $desc = $req->input('desc');
         $author = $req->input('author');
         $image = $req->file('image');
+        $type = $req->input('type');
 
         if ($req->hasFile('image')) {
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('articles', $filename, 'public');
-
+            $image->move(public_path("/uploads/article"), $filename);
             $article = new Article;
             $article->title = $title;
             $article->date = $date;
             $article->desc = $desc;
             $article->author = $author;
             $article->image = $filename;
+            $article->type = $type;
 
             $article->save();
         }
@@ -63,24 +64,24 @@ class ArticleController extends Controller
         $date = $req->input('date');
         $desc = $req->input('desc');
         $author = $req->input('author');
+        $type = $req->input('type');
         $image = $req->file('image');
 
         $article = Article::find($id);
-        $oldFile = storage_path('app/public/articles/' . $article->image);
+        $oldFile = asset('uploads/article/' . $article->image);
 
         if ($req->hasFile('image')) {
-
             if (File::exists($oldFile)) {
                 $filename = time() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('articles', $filename, 'public');
+                $image->move(public_path("/uploads/article"), $filename);
                 $article->title = $title ? $title : $article->title;
                 $article->date = $date ? $date : $article->date;
                 $article->desc = $desc ? $desc : $article->desc;
                 $article->author = $author ? $author : $article->author;
                 $article->image = $filename;
+                $article->type = $type ?? $article->type;
                 $article->save();
                 File::delete($oldFile);
-
             }
 
         } else {
@@ -89,6 +90,7 @@ class ArticleController extends Controller
             $article->desc = $desc ? $desc : $article->desc;
             $article->author = $author ? $author : $article->author;
             $article->image = $article->image;
+            $article->type = $type ?? $article->type;
             $article->save();
         }
         return redirect('/cms/en/articles')->with('pesan', 'Article Updated');
@@ -97,10 +99,9 @@ class ArticleController extends Controller
     public function delete($id)
     {
         $article = Article::find($id);
-        $file = storage_path('app/public/articles/' . $article->image);
+        $file = asset('uploads/article/' . $article->image);
         if (File::exists($file)) {
             File::delete($file);
-
         }
         $article->delete();
         return redirect('/cms/en/articles')->with('pesan', 'Article Deleted');

@@ -20,7 +20,7 @@ class SliderController extends Controller
         if ($req->hasFile('image')) {
             $image = $req->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('slider', $filename, 'public');
+            $image->move(public_path("/uploads/slider"), $filename);
             $hasLink = $req->input('hasLink');
             $link = $req->input('link');
             $name = $req->input('imageName');
@@ -39,7 +39,7 @@ class SliderController extends Controller
     public function delete($id)
     {
         $slider = Slider::find($id);
-        $path = storage_path('app/public/slider/' . $slider->filename);
+        $path = asset("uploads/slider/" . $slider->filename);
 
         if (File::exists($path)) {
             File::delete($path);
