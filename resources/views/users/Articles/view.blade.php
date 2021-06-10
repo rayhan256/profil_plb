@@ -16,11 +16,11 @@
     <title>Politeknik LP3I Bandung</title>
 </head>
 @php
-use Stichoza\GoogleTranslate\GoogleTranslate;
+// use Stichoza\GoogleTranslate\GoogleTranslate;
 $locale = App::getLocale();
-$tr = new GoogleTranslate();
-$tr->setSource();
-$tr->setTarget($locale);
+// $tr = new GoogleTranslate();
+// $tr->setSource();
+// $tr->setTarget($locale);
 @endphp
 
 <body>
@@ -46,7 +46,7 @@ $tr->setTarget($locale);
     </header>
     <div class="container">
         <section>
-            <h4 class="text-title">{{$tr->translate($article->title)}}</h4>
+            <h4 class="text-title">{{$article->title}}</h4>
             <div class="d-flex flex-row mt-4 justify-content-between">
                 <h5 class="text-muted">{!! date('W F Y', strtotime($article->date)) !!}, By {{$article->author}}</h5>
                 <div style="width: 200px" class="d-flex flex-row">
@@ -79,7 +79,7 @@ $tr->setTarget($locale);
         <section>
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center"> {{$tr->translate('See Another News & Events')}}</h1>
+                    <h1 class="text-center"> {{"Lihat Berita Terbaru Lainnya"}}</h1>
                 </div>
                 <hr>
             </div>
@@ -91,13 +91,13 @@ $tr->setTarget($locale);
                                 style="width: 100%; height: 200px; object-position: center; object-fit: fill; background-position: center;"
                                 alt="{{$b->title}}"></div>
                         <div class="card-body p-0 mt-4">
-                            <div class="h6">{{$tr->translate($b->title)}} <br>
+                            <div class="h6">{{$b->title}} <br>
                                 <div class="mt-2 text-muted" style="font-size: 12px;">
-                                    {!! date('D, w F Y', strtotime($b->date)) !!}
+                                    {!! date('D, jS F Y', strtotime($b->date)) !!}
                                 </div>
                             </div>
                             <a href="{{$locale}}/articles/{{$b->id}}"
-                                class="btn text-primary p-0 text-left btn-sm">{{$tr->translate("Read More")}}</a>
+                                class="btn text-primary p-0 text-left btn-sm">{{"Read More"}}</a>
                         </div>
                     </div>
                 </div>

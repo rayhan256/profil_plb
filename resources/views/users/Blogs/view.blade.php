@@ -45,7 +45,7 @@
                 <div class="col-12"><h4 class="text-title">{{$blog->title}}</h4></div>
             </div>
             <div class="d-flex flex-row mt-4 justify-content-between">
-                <h5 class="text-muted">{!! date('D, w F Y', strtotime($blog->date)) !!}, By {{$blog->author}}</h5>
+                <h5 class="text-muted">{!! date('D, W F Y', strtotime($blog->date)) !!}, By {{$blog->author}}</h5>
                 <div style="width: 200px" class="d-flex flex-row">
                     <h5 class="text-muted me-2">Share</h5>
                     <a href="whatsapp://send?text={!! Request::url() !!}" data-action="share/whatsapp/share"
@@ -71,7 +71,7 @@
         <section>
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center"> See Another Blogs</h1>
+                    <h1 class="text-center">Lihat Artikel Lainnya</h1>
                 </div>
                 <hr>
             </div>
@@ -85,7 +85,7 @@
                         <div class="card-body p-0 mt-4">
                             <div class="h6">{{$b->title}} <br>
                                 <div class="mt-2 text-muted" style="font-size: 12px;">
-                                    {!! date('D, w F Y', strtotime($b->date)) !!}
+                                    {!! date('D, W F Y', strtotime($b->date)) !!}
                                 </div>
                             </div>
                             <a href="/blogs/view/{{$b->id}}" class="btn text-primary p-0 text-left btn-sm">Read More</a>

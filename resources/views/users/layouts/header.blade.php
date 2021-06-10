@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-use Stichoza\GoogleTranslate\GoogleTranslate;
+// use Stichoza\GoogleTranslate\GoogleTranslate;
 $locale = App::getLocale();
-     $tr = new GoogleTranslate();
-    $tr->setSource();
-    $tr->setTarget($locale);
+//      $tr = new GoogleTranslate();
+//     $tr->setSource();
+//     $tr->setTarget($locale);
 ?>
 
 <head>
@@ -31,21 +31,7 @@ $locale = App::getLocale();
 </style>
 
 <body>
-    <section class="preloader">
-        <div class="loader">
-            <div></div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-            <defs>
-                <filter id="goo">
-                    <fegaussianblur in="SourceGraphic" stddeviation="15" result="blur"></fegaussianblur>
-                    <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -10"
-                        result="goo"></fecolormatrix>
-                    <feblend in="SourceGraphic" in2="goo"></feblend>
-                </filter>
-            </defs>
-        </svg>
-    </section>
+
     <header class="">
         <nav class="navbar navbar-expand-lg navbar-dark d-flex justify-content-evenly">
             <div class="container">
@@ -60,22 +46,22 @@ $locale = App::getLocale();
                     <ul class="navbar-nav align-self-center me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page"
-                                href="/{{$locale}}">{{$tr->translate('Beranda') ?? "Beranda"}}</a>
+                                href="/{{$locale}}">{{"Beranda"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/about">{{ucfirst($tr->translate('About')) ?? "Tentang"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/about">{{"Tentang"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/blogs">{{ucfirst($tr->translate('Articles')) ?? "Artikel"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/blogs">{{"Artikel"}}</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="/{{$locale}}/career_centre">{{$tr->translate('Career Centre')}}</a>
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/link_and_match">{{ucfirst($tr->translate('Education')) ?? "Pendidikan"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/link_and_match">{{"Pendidikan"}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/gallery">{{ucfirst($tr->translate('Gallery')) ?? "Galeri"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/gallery">{{"Galeri"}}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/{{$locale}}/career_centre">Pusat Karir</a>
@@ -83,7 +69,7 @@ $locale = App::getLocale();
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ucfirst($tr->translate('Journal'))}}
+                                {{"Jurnal"}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item"
@@ -101,7 +87,7 @@ $locale = App::getLocale();
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="true">
-                                {{ucfirst($tr->translate('Kampus')) ?? "Kampus"}}
+                                {{ "Kampus"}}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <?php $campus = Campus::all() ?>
@@ -123,7 +109,7 @@ $locale = App::getLocale();
                                 @case('en')
                                 English
                                 @break
-                                @case('id')
+                                @case('id-ID')
                                 Indonesia
                                 @break
                                 @default
@@ -132,7 +118,7 @@ $locale = App::getLocale();
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/en">English</a></li>
-                                <li><a class="dropdown-item" href="/id">Indonesia</a></li>
+                                <li><a class="dropdown-item" href="/id-ID">Indonesia</a></li>
                         </div>
                     </ul>
                 </div>

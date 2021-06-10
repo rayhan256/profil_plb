@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/id');
+    return redirect('/id-ID');
 });
 
 Route::get('/cms', function () {

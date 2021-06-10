@@ -48,9 +48,10 @@
         </div>
     </div>
 </footer>
-<a href="https://api.whatsapp.com/send?phone=085882715554&text=Hai%20Minta%20Informasinya%20Dong%20..%20." class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=085882715554&text=Hai%20Minta%20Informasinya%20Dong%20..%20." class="float"
+    target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
-    </a>
+</a>
 </div>
 
 <script src="{{asset('/js/script.js')}}"></script>
@@ -62,16 +63,6 @@
     integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous">
 </script>
 <script>
-    (function () {
-        setTimeout(() => {
-            document.querySelector('body').classList.add('loaded');
-            setTimeout(() => {
-                document.querySelector('.preloader').style.display = "none";
-            }, 500);
-        }, 2500);
-
-    })()
-    AOS.init();
     function backToTop() {
         window.scrollTo({
             top: 0,
@@ -82,9 +73,23 @@
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+<script src="{{asset('/queryloader/queryloader2.min.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        $("body").queryLoader2({
+            barColor: "#efefef",
+            backgroundColor: "#063173",
+            percentage: true,
+            barHeight: 1,
+            minimumTime: 200,
+            fadeOutTime: 1000
+        });
+    });
+
+</script>
 </body>
 
 </html>

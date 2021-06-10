@@ -1,9 +1,9 @@
 @php
 use Stichoza\GoogleTranslate\GoogleTranslate;
 $locale = App::getLocale();
-$tr = new GoogleTranslate();
-$tr->setSource();
-$tr->setTarget($locale);
+// $tr = new GoogleTranslate();
+// $tr->setSource();
+// $tr->setTarget($locale);
 @endphp
 @include('users/layouts/header')
 </header>
@@ -23,9 +23,9 @@ $tr->setTarget($locale);
                 <img src="{{asset('assets/images/career.svg')}}" alt="career" class="img-fluid">
             </div>
             <div class="col-md-6 col-sm-12 mt-4">
-                <h2>{{$tr->translate('Pusat Karir Politeknik LP3I')}}</h2>
-                <p class="h5 mt-4">{{$tr->translate("Merupakan pusat penempatan kerja dan sumber informasi perusahaan yang bekerja sama
-                    dengan Politeknik LP3I")}}</p>
+                <h2>{{'Pusat Karir Politeknik LP3I'}}</h2>
+                <p class="h5 mt-4">{{"Merupakan pusat penempatan kerja dan sumber informasi perusahaan yang bekerja sama
+                    dengan Politeknik LP3I"}}</p>
             </div>
         </div>
     </section>
@@ -35,8 +35,8 @@ $tr->setTarget($locale);
 </div>
 <section class="partner">
     <div class="container">
-        <h2 class="text-center text-white mt-5">{{$tr->translate("Our Partner")}}</h2>
-        <p class="text-center text-white">{{$tr->translate('Here We Have A Partner')}}</p>
+        <h2 class="text-center text-white mt-5">{{"Perusahaan Kerja Sama"}}</h2>
+        <p class="text-center text-white">{{'Ini Adalah Perusahaan Kerja Sama Kami'}}</p>
         <div class="row">
             @foreach ($partner as $item)
             <div class="col-3 my-3">
@@ -52,19 +52,18 @@ $tr->setTarget($locale);
     <div class="container">
         <div class="row">
             <div class="col-md-12 px-3">
-                <h1 class="text-white text-center" style="margin-top: 100px;">{{$tr->translate("Ini Kata Alumni Tentang Kami")}}</h1>
-                <p class="text-center text-white mb-5">{{$tr->translate("We're incredibly thankful to have alumni and student to
-                    collaborate with us")}}</p>
+                <h1 class="text-white text-center" style="margin-top: 100px;">{{"Kata Alumni Tentang Politeknik LP3I"}}</h1>
+                {{-- <p class="text-center text-white mb-5">{{"Terima K "}}</p> --}}
                 <hr style="background-color: white;">
                 <div class="main">
                     <div class="slider slider-for">
                         @foreach ($testimonial as $item)
                         <div class="testimonial-wrapper p-sm-3">
                             <img src="{{asset('uploads/testimonial/'.$item->image)}}"
-                                class="img-fluid testimonial-image" alt="{{$tr->translate($item->title)}}">
+                                class="img-fluid testimonial-image" alt="{{$item->title}}">
                             <div class="testimonial-body mt-3">
-                                <div class="title align-self-center">{{$tr->translate($item->title)}}</div>
-                                <blockquote class="quote align-self-center">"{{$tr->translate($item->desc)}}" - {{$item->name}}
+                                <div class="title align-self-center">{{$item->title}}</div>
+                                <blockquote class="quote align-self-center">"{{$item->desc}}" - {{$item->name}}
                                 </blockquote>
                             </div>
                         </div>
@@ -84,7 +83,7 @@ $tr->setTarget($locale);
     </div>
 </section>
 <section class="career-news">
-    <h2 class="text-center">{{$tr->translate("News About Career")}}</h2>
+    <h2 class="text-center">{{"Berita Tentang Pusat Karir"}}</h2>
     <div class="container">
         <div class="row">
             @foreach ($careers as $i)
@@ -93,7 +92,7 @@ $tr->setTarget($locale);
                     <a href="/blogs/view/{{$i->id}}"><img src="{{asset('uploads/article/').'/'.$i->image}}"
                             style="background-size: cover;" class="card-img-top" alt=""></a>
                     <div class="card-body">
-                        <div class="card-title">{{$tr->translate($i->title)}}</div>
+                        <div class="card-title">{{$i->title}}</div>
                         <p>{{$i->author}}, {!! date('W F Y', strtotime($i->date)) !!}</p>
                     </div>
                 </div>

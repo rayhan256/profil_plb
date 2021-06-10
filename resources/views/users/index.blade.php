@@ -1,10 +1,10 @@
 @include('users/layouts/header')
 <?php 
-    use Stichoza\GoogleTranslate\GoogleTranslate;
+    // use Stichoza\GoogleTranslate\GoogleTranslate;
     $locale = App::getLocale();
-    $tr = new GoogleTranslate();
-    $tr->setSource();
-    $tr->setTarget($locale);
+    // $tr = new GoogleTranslate();
+    // $tr->setSource();
+    // $tr->setTarget($locale);
 ?>
 <div class="cities slideshow screen-height" data-js="city-slider" data-transition="">
     <div class="slideshow-inner"> 
@@ -18,7 +18,7 @@
           <div class="slide__slide-content">
               <span></span>  
               <h3>
-                  <a href="{{$item->link}}" style="color: white">{{$tr->translate($item->name)}}</a>
+                  <a href="{{$item->link}}" style="color: white">{{$item->name}}</a>
               </h3>
           </div>
           <div class="image-container">
@@ -41,7 +41,7 @@
           <li class="page {{$index == 0 ? "is-active" : ""}}">
             <a href="#" class="page__link">
               <i data-js="page-loader"></i>
-              {{$tr->translate($item->name)}}
+              {{$item->name}}
             </a>
           </li>
           @endforeach
@@ -74,8 +74,8 @@
                 <div class="col-md-6 col-sm-12 my-2">
 
                     <div class="wrapper mt-5 ms-5" style="width: 80%">
-                        <h1 class="text-title" style="font-size: 35px">{{$tr->translate("Apa Itu Pendidikan Vokasi ?")}}</h1>
-                        <p class="mt-4">{{$tr->translate("Pendidikan vokasi adalah sistem pendidikan yang menerapkan praktik 80% serta teori 20%.")}}</p>
+                        <h1 class="text-title" style="font-size: 35px">{{"Apa Itu Pendidikan Vokasi ?"}}</h1>
+                        <p class="mt-4">{{"Pendidikan vokasi adalah sistem pendidikan yang menerapkan praktik 80% serta teori 20%."}}</p>
                         <?php $locale = App::getLocale(); ?>
                         <a href="/{{$locale}}/link_and_match" class="mt-3 btn text-primary"
                             style="padding: 0; font-weight: 600;">Find Out
@@ -92,7 +92,7 @@
         <section id="news">
             <div class="row mb-3">
                 <div class="col-12 text-center">
-                    <h1>{{$tr->translate("Berita dan Kegiatan Terbaru" ?? "Berita dan Kegiatan Terbaru")}}</h1>
+                    <h1>{{"Berita dan Kegiatan Terbaru"}}</h1>
                 </div>
             </div>
             <hr class="mt-3 mb-3 bg-primary">
@@ -105,12 +105,12 @@
                                 class="card-img-top rounded">
                             <div class="card-body mt-4" style="padding: 0;">
                                 <div class="card-title">
-                                    {{$tr->translate($article->title) ?? $article->title}}
+                                    {{$article->title}}
                                 </div>
             
                                 <div class="mt-3 float-right">
                                     <a href="{{$locale}}/articles/{{$article->id}}" class="btn btn-outline-primary btn-sm">
-                                        {{$tr->translate('Read More') ?? "Read More"}}
+                                        {{"Read More"}}
                                     </a>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 @include('users.layouts.header')
 <div class="container">
     <section class="news-header" style="margin-top: 1.5em;">
-        <h3>Search Result</h3>
+        <h3>Hasil Pencarian</h3>
     </section>
     <section style="margin-top: 1em;">
         <div class="row">
@@ -22,7 +22,7 @@
             @endforeach
             @else
             <center>
-                <h2>No Articles Found</h2>
+                <h2>Artikel atau Berita Tidak Ditemukan</h2>
             </center>
             @endif
         </div>
