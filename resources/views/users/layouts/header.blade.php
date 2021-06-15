@@ -1,4 +1,4 @@
-<?php use App\Models\Campus; ?>
+<?php use App\Models\Campus;?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -46,30 +46,27 @@ $locale = App::getLocale();
                     <ul class="navbar-nav align-self-center me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page"
-                                href="/{{$locale}}">{{"Beranda"}}</a>
+                                href="/{{$locale}}">@lang('navbar.home')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/about">{{"Tentang"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/about">@lang('navbar.about')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/blogs">{{"Artikel"}}</a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/career_centre">{{$tr->translate('Career Centre')}}</a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/link_and_match">{{"Pendidikan"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/blogs">@lang('navbar.article')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/gallery">{{"Galeri"}}</a>
+                            <a class="nav-link" href="/{{$locale}}/link_and_match">@lang('navbar.education')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$locale}}/career_centre">Pusat Karir</a>
+                            <a class="nav-link" href="/{{$locale}}/gallery">@lang('navbar.gallery')</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/{{$locale}}/career_centre">@lang('navbar.carrier_centre')</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                {{"Jurnal"}}
+                               @lang('navbar.journal')
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item"
@@ -87,10 +84,10 @@ $locale = App::getLocale();
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="true">
-                                {{ "Kampus"}}
+                              @lang('navbar.campus')
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                <?php $campus = Campus::all() ?>
+                                <?php $campus = Campus::all()?>
                                 @foreach ($campus as $c)
                                 <li><a class="dropdown-item" href="/campus/{{$c->id}}">{{$c->campus_name}}</a></li>
                                 @endforeach

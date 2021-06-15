@@ -1,24 +1,20 @@
 @include('users/layouts/header')
 @php
-    // use Stichoza\GoogleTranslate\GoogleTranslate;
     $locale = App::getLocale();
-    // $tr = new GoogleTranslate();
-    // $tr->setSource();
-    // $tr->setTarget($locale);
 @endphp
 <div class="container">
     <section class="news-header" style="margin-top: 1.5em;">
-        <h3>{{'Berita Terbaru'}}</h3>
+        <h3>@lang('article.title')</h3>
         <form action="blogs/search" method="GET">
             <div class="row mt-5">
                 <div class="col-md-3 col-sm-4 w-50">
                     <div class="form-group">
-                        <input type="text" placeholder="{{'Cari Artikel Disini'}}" class="form-control" name="article"
+                        <input type="text" placeholder="@lang('article.search')" class="form-control" name="article"
                             id="article">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-4 w-50">
-                    <button class="btn btn-primary">{{'Cari'}}</button>
+                    <button class="btn btn-primary">@lang('article.button')</button>
                 </div>
             </div>
         </form>

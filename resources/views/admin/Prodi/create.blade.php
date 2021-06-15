@@ -11,6 +11,16 @@
             <label for="">Image</label>
             <input type="file" name="image" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="">Akreditasi</label>
+            <select name="akreditasi" id="" class="form-control">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </div>
+
         <input type="submit" value="Add" class="btn btn-primary">
     </form>
 </div>

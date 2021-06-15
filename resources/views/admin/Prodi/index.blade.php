@@ -14,6 +14,7 @@
                 <th>No</th>
                 <th>Name</th>
                 <th>Image</th>
+                <th>Akreditasi</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
                     <td>{{$index}}</td>
                     <td>{{$item->name}}</td>
                     <td><img src="{{asset('uploads/prodi/'.$item->image)}}" width="150" height="150" alt=""></td>
+                    <td>{{$item->akreditasi}}</td>
                     <td>
                         <a href="/cms/en/prodi/update/{{$item->id}}" class="btn btn-outline-primary">Update</a>
                         <a href="/cms/en/prodi/delete/{{$item->id}}" class="btn btn-danger">Delete</a>

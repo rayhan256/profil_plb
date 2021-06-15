@@ -1,31 +1,27 @@
 @include('users/layouts/header')
-<?php 
-    // use Stichoza\GoogleTranslate\GoogleTranslate;
-    $locale = App::getLocale();
-    // $tr = new GoogleTranslate();
-    // $tr->setSource();
-    // $tr->setTarget($locale);
+<?php
+$locale = App::getLocale();
 ?>
 <div class="cities slideshow screen-height" data-js="city-slider" data-transition="">
-    <div class="slideshow-inner"> 
+    <div class="slideshow-inner">
       <div class="cities__slider slides">
-       <?php $index = 1; ?>
+       <?php $index = 1;?>
         @foreach ($slider as $item)
         @php
             $index++;
         @endphp
-        <div class="cities__slide slide {{$index == 1 ? "is_active" : ""}}">
+        <div class='cities__slide slide {{$index == 1 ? "is_active" : ""}}'>
           <div class="slide__slide-content">
-              <span></span>  
+              <span></span>
               <h3>
-                  <a href="{{$item->link}}" style="color: white">{{$item->name}}</a>
+                  <a href="{{$item->link}}" style="color: white"></a>
               </h3>
           </div>
           <div class="image-container">
               <img
                   src="data:image/gif;base64,R0lGODdhAQABAPAAAP///wAAACwAAAAAAQABAEACAkQBADs="
                   data-src={{asset('uploads/slider/'.$item->filename)}}
-                  alt="bracelets-bijoux-createur" 
+                  alt="bracelets-bijoux-createur"
                   class="image queue-loading as-background"/>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
               <filter id="blur">
@@ -34,20 +30,20 @@
             </svg>
           </div>
       </div>
-        @endforeach 
+        @endforeach
       <nav class="pages mt-5">
-        <ul>
+        <!-- <ul>
           @foreach ($slider as $item)
-          <li class="page {{$index == 0 ? "is-active" : ""}}">
+          <li class="page {{$index == 0 ? 'is-active' : ''}}">
             <a href="#" class="page__link">
               <i data-js="page-loader"></i>
               {{$item->name}}
             </a>
           </li>
           @endforeach
-        </ul>
+        </ul> -->
       </nav>
-      
+
       <div class="arrows">
         <div class="arrow prev" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
           <span class="svg svg-arrow-left">
@@ -69,17 +65,15 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 my-2">
                     <img src="{{asset('assets/images/plb.jpg')}}" class="img-fluid rounded" width="900" height="900"
-                        alt="tentang fokasi">
+                        alt="tentang fokasi" data-aos="ease-in" data-aos-duration="1500">
                 </div>
                 <div class="col-md-6 col-sm-12 my-2">
-
-                    <div class="wrapper mt-5 ms-5" style="width: 80%">
-                        <h1 class="text-title" style="font-size: 35px">{{"Apa Itu Pendidikan Vokasi ?"}}</h1>
-                        <p class="mt-4">{{"Pendidikan vokasi adalah sistem pendidikan yang menerapkan praktik 80% serta teori 20%."}}</p>
-                        <?php $locale = App::getLocale(); ?>
+                    <div class="wrapper mt-5 ms-5" style="width: 80%" data-aos="ease-in" data-aos-duration="1600">
+                        <h1 class="text-title" style="font-size: 35px">@lang('home.about_vocational_title')</h1>
+                        <p class="mt-4">@lang('home.about_vocational_desc')</p>
+                        <?php $locale = App::getLocale();?>
                         <a href="/{{$locale}}/link_and_match" class="mt-3 btn text-primary"
-                            style="padding: 0; font-weight: 600;">Find Out
-                            Here <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            style="padding: 0; font-weight: 600;">@lang('home.about_vocational_button')<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-right ms-2" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
@@ -92,7 +86,7 @@
         <section id="news">
             <div class="row mb-3">
                 <div class="col-12 text-center">
-                    <h1>{{"Berita dan Kegiatan Terbaru"}}</h1>
+                    <h1>@lang('home.events')</h1>
                 </div>
             </div>
             <hr class="mt-3 mb-3 bg-primary">
@@ -107,7 +101,7 @@
                                 <div class="card-title">
                                     {{$article->title}}
                                 </div>
-            
+
                                 <div class="mt-3 float-right">
                                     <a href="{{$locale}}/articles/{{$article->id}}" class="btn btn-outline-primary btn-sm">
                                         {{"Read More"}}
@@ -128,7 +122,6 @@
     </section>
     </div>
 </main>
-
 @include('users/layouts/footer')
 @include('users/layouts/indexjs')
 

@@ -26,7 +26,7 @@
                             <img src="{{asset('admin/assets/img/web-browser.svg')}}" alt="blog" class="img-fluid">
                         </div>
                         <div class="col">
-                            <div class="h5 mt-4 w-100">{{$count_article}} Berita</div>
+                             <div class="h5 mt-4 w-100">{{$count_article}} Berita</div>
                         </div>
                     </div>
                 </div>

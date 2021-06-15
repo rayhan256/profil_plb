@@ -23,9 +23,8 @@ $locale = App::getLocale();
                 <img src="{{asset('assets/images/career.svg')}}" alt="career" class="img-fluid">
             </div>
             <div class="col-md-6 col-sm-12 mt-4">
-                <h2>{{'Pusat Karir Politeknik LP3I'}}</h2>
-                <p class="h5 mt-4">{{"Merupakan pusat penempatan kerja dan sumber informasi perusahaan yang bekerja sama
-                    dengan Politeknik LP3I"}}</p>
+                <h2>@lang('carreer.main_title')</h2>
+                <p class="h5 mt-4">@lang('carreer.main_desc')</p>
             </div>
         </div>
     </section>
@@ -35,8 +34,8 @@ $locale = App::getLocale();
 </div>
 <section class="partner">
     <div class="container">
-        <h2 class="text-center text-white mt-5">{{"Perusahaan Kerja Sama"}}</h2>
-        <p class="text-center text-white">{{'Ini Adalah Perusahaan Kerja Sama Kami'}}</p>
+        <h2 class="text-center text-white mt-5">@lang('carreer.partner')</h2>
+        <p class="text-center text-white">@lang('carreer.partner_desc')</p>
         <div class="row">
             @foreach ($partner as $item)
             <div class="col-3 my-3">
@@ -52,8 +51,7 @@ $locale = App::getLocale();
     <div class="container">
         <div class="row">
             <div class="col-md-12 px-3">
-                <h1 class="text-white text-center" style="margin-top: 100px;">{{"Kata Alumni Tentang Politeknik LP3I"}}</h1>
-                {{-- <p class="text-center text-white mb-5">{{"Terima K "}}</p> --}}
+                <h1 class="text-white text-center" style="margin-top: 100px;">@lang('carreer.testimonial')</h1>
                 <hr style="background-color: white;">
                 <div class="main">
                     <div class="slider slider-for">
@@ -83,7 +81,7 @@ $locale = App::getLocale();
     </div>
 </section>
 <section class="career-news">
-    <h2 class="text-center">{{"Berita Tentang Pusat Karir"}}</h2>
+    <h2 class="text-center my-4">@lang('carreer.news')</h2>
     <div class="container">
         <div class="row">
             @foreach ($careers as $i)

@@ -59,7 +59,7 @@
         </div>
     </section>
     <section>
-        <h2 class="text-center mb-4">Organization Structure</h2>
+        <h2 class="text-center mb-4">@lang('about.structure')</h2>
         <div class="row">
             <div class="col-12">
                 @foreach ($structure as $item)

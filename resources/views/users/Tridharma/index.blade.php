@@ -41,3 +41,6 @@
     </section>
 </div>
 @include('users/layouts/footer')
+<script type="text/javascript">
+    AOS.init();
+</script>

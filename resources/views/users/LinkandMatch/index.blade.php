@@ -1,10 +1,6 @@
 @include('users/layouts/header')
 @php
-     use Stichoza\GoogleTranslate\GoogleTranslate;
     $locale = App::getLocale();
-    $tr = new GoogleTranslate();
-    $tr->setSource();
-    $tr->setTarget($locale);
 @endphp
 </header>
 <div class="container">
@@ -27,24 +23,24 @@
         <div class="col-md-6"></div>
         <div class="col-md-6 col-sm-12">
             <div class="education-text-wrapper">
-                <h1>{{$tr->translate('Kami Pastiin Mahasiswa Sudah Siap Bekerja Kok')}}</h1>
-                <p>{{$tr->translate('Kami menjamin dan berkomitmen kepada seluruh mahasiswa dan mahasiswi kami memiliki kemampuan yang
-                    kompeten dan dapat bersaing dalam dunia kerja.')}}</p>
-                <a href="" class="btn btn-primary">{{$tr->translate('Lihat Pusat Karir')}}</a>
+                <h1>@lang('linkandmatch.sure_title')</h1>
+                <p>@lang('linkandmatch.sure_content')</p>
+                <a href="" class="btn btn-primary">@lang('linkandmatch.sure_button')</a>
             </div>
         </div>
     </div>
 </section>
 <div class="prodi">
     <div class="container">
-        <h2 class="text-center text-white">{{$tr->translate('Program Studi')}}</h2>
+        <h2 class="text-center text-white">@lang('linkandmatch.courses')</h2>
         <div class="row prodi-wrapper">
             @foreach ($prodi as $item)
             <div class="col-md-3 col-sm-12">
                 <div class="card">
                     <img src="{{asset('uploads/prodi/'.$item->image)}}" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <div class="card-title h5">{{$tr->translate($item->name)}}</div>
+                    <div class="card-body text-center">
+                        <div class="card-title h5">{{$item->name}}</div>
+                        <div class="card-text">Akretidasi {{$item->akreditasi}}</div>
                     </div>
                 </div>
             </div>
@@ -58,10 +54,10 @@
                     <div class="slider slider-for">
                         @foreach ($prodi as $item)
                         <div class="testimonial-wrapper">
-                            <img src="{{asset('uploads/prodi/'.$item->image)}}" class="img-fluid testimonial-image"
+                            <img src="{{asset('uploads/prodi/'.$item->image)}}" class="img-fluid"
                                 alt="{{$item->name}}">
-                            <div class="testimonial-body mt-3">
-                                <div class="title text-white align-self-center">{{$item->name}}</div>
+                            <div class="testimonial-body mt-3 text-center">
+                                <div class="title text-white align-self-center text-center">{{$item->name}}</div>
                             </div>
                         </div>
                         @endforeach
@@ -81,8 +77,8 @@
 </div>
 <section class="ukm">
     <div class="mt-4">
-        <h2 class="text-center">{{$tr->translate('Organization')}}</h2>
-        <p class="text-center">{{$tr->translate("Here's Our Organization You Should Know")}}</p>
+        <h2 class="text-center">@lang('linkandmatch.organizations')</h2>
+        <p class="text-center">@lang('linkandmatch.organizations_desc')</p>
     </div>
     <div class="container">
         <div class="row">
@@ -92,7 +88,7 @@
                     <img src="{{asset('uploads/'.$item->image)}}" alt="" class="card-img-top" style="object-fit: cover;">
                     <div class="card-body mt-3">
                         <div class="card-title"><strong>{{$item->name}}</strong></div>
-                        <p class="card-text m-0">{!!$tr->translate($item->desc)!!}</p>
+                        <p class="card-text m-0">{!!$item->desc!!}</p>
                     </div>
                 </div>
             </div>
