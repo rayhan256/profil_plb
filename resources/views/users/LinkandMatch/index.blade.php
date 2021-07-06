@@ -1,12 +1,18 @@
 @include('users/layouts/header')
 @php
-    $locale = App::getLocale();
+$locale = App::getLocale();
 @endphp
 </header>
+<style>
+    .slick-arrow {
+        display: none !important;
+    }
+
+</style>
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-6 col-sm-12">
-            <img src="{{asset('assets/images/link_match.png')}}" alt="Link and Match LP3I" class="img-fluid"
+            <img src="{{ asset('assets/images/link_match.png') }}" alt="Link and Match LP3I" class="img-fluid"
                 style="object-fit: fill;" class="ms-3">
         </div>
         <div class="col-md-6 col-sm-12 mt-5">
@@ -35,15 +41,15 @@
         <h2 class="text-center text-white">@lang('linkandmatch.courses')</h2>
         <div class="row prodi-wrapper">
             @foreach ($prodi as $item)
-            <div class="col-md-3 col-sm-12">
-                <div class="card">
-                    <img src="{{asset('uploads/prodi/'.$item->image)}}" alt="" class="card-img-top">
-                    <div class="card-body text-center">
-                        <div class="card-title h5">{{$item->name}}</div>
-                        <div class="card-text">Akretidasi {{$item->akreditasi}}</div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="card">
+                        <img src="{{ asset('uploads/prodi/' . $item->image) }}" alt="" class="card-img-top">
+                        <div class="card-body text-center">
+                            <div class="card-title h5">{{ $item->name }}</div>
+                            <div class="card-text">Akreditasi {{ $item->akreditasi }}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -51,23 +57,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="main">
-                    <div class="slider slider-for">
+                    <div class="slider slider-nav mb-5 p-3">
                         @foreach ($prodi as $item)
-                        <div class="testimonial-wrapper">
-                            <img src="{{asset('uploads/prodi/'.$item->image)}}" class="img-fluid"
-                                alt="{{$item->name}}">
-                            <div class="testimonial-body mt-3 text-center">
-                                <div class="title text-white align-self-center text-center">{{$item->name}}</div>
+                            <div class="testimonial-wrapper">
+                                <img src="{{ asset('uploads/prodi/' . $item->image) }}" class="img-fluid mx-2"
+                                    style="cursor: pointer" alt="{{ $item->name }}">
                             </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="slider slider-nav mb-5 w-100">
-                        @foreach ($prodi as $item)
-                        <div class="testimonial-wrapper">
-                            <img src="{{asset('uploads/prodi/'.$item->image)}}" class="img-fluid testimonial-image"
-                                style="cursor: pointer" alt="{{$item->name}}">
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -83,58 +78,61 @@
     <div class="container">
         <div class="row">
             @foreach ($ukm as $item)
-            <div class="col-md-3 col-sm-6">
-                <div class="card bg-transparent my-3">
-                    <img src="{{asset('uploads/'.$item->image)}}" alt="" class="card-img-top" style="object-fit: cover;">
-                    <div class="card-body mt-3">
-                        <div class="card-title"><strong>{{$item->name}}</strong></div>
-                        <p class="card-text m-0">{!!$item->desc!!}</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card bg-transparent my-3">
+                        <img src="{{ asset('uploads/' . $item->image) }}" alt="" class="card-img-top"
+                            style="object-fit: cover;">
+                        <div class="card-body mt-3">
+                            <div class="card-title"><strong>{{ $item->name }}</strong></div>
+                            <p class="card-text m-0">{!! $item->desc !!}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
 </section>
 @include('users/layouts/footer')
 <script>
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.slider-nav'
-    });
     $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.slider-for',
-        dots: true,
-        focusOnSelect: true,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+        centerPadding: '20px'
     });
-
+    // $('.slider-nav').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     arrows: false,
+    //     fade: true,
+    //     // asNavFor: '.slider-nav'
+    // });
+    // $('.slider-nav').slick({
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     asNavFor: '.slider-for',
+    //     dots: true,
+    //     focusOnSelect: true,
+    //     responsive: [{
+    //             breakpoint: 1024,
+    //             settings: {
+    //                 slidesToShow: 3,
+    //                 slidesToScroll: 3,
+    //                 infinite: true,
+    //                 dots: true
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 768,
+    //             settings: {
+    //                 slidesToShow: 2,
+    //                 slidesToScroll: 2
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 480,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //                 slidesToScroll: 1
+    //             }
+    //         }
+    //     ]
+    // });
 </script>

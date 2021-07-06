@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Campus;
+use App\Models\Gallery;
 use App\Models\Ipaddress;
 use App\Models\OrganizationStructure;
 use App\Models\Partner;
@@ -24,8 +25,23 @@ class HomeController extends Controller
         $visitor->save();
         $slider = ModelsSlider::orderBy('created_at', 'DESC')->paginate(3);
         $article = Article::orderBy('created_at', 'DESC')->paginate(4);
+        $prodi = Prodi::all();
         $testimonial = Testimonial::paginate(4);
-        return view('users.index', ['testimonial' => $testimonial, 'articles' => $article, 'slider' => $slider]);
+        return view('users.index', ['testimonial' => $testimonial, 'articles' => $article, 'slider' => $slider, 'prodi' => $prodi]);
+    }
+
+    public function detail_prodi($locale, $id) {
+        $prodi = Prodi::find($id);
+        return view('users.Prodi.index', ['prodi' => $prodi]);
+    }
+
+    public function all_gallery() {
+        $galleries = Gallery::paginate(8);
+        return view('users.Gallery.detail_gallery', ['galleries' => $galleries]);
+    }
+
+    public function all_videos() {
+        return view('users.Gallery.detail_youtube');
     }
 
     public function tridharma()
@@ -83,7 +99,8 @@ class HomeController extends Controller
 
     public function gallery()
     {
-        return view('users.Gallery.index');
+        $galleries = Gallery::paginate(8);
+        return view('users.Gallery.index', ['galleries' => $galleries]);
     }
 
     public function campus($id)

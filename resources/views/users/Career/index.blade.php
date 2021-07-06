@@ -1,9 +1,5 @@
 @php
-use Stichoza\GoogleTranslate\GoogleTranslate;
 $locale = App::getLocale();
-// $tr = new GoogleTranslate();
-// $tr->setSource();
-// $tr->setTarget($locale);
 @endphp
 @include('users/layouts/header')
 </header>
@@ -20,7 +16,7 @@ $locale = App::getLocale();
     <section>
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <img src="{{asset('assets/images/career.svg')}}" alt="career" class="img-fluid">
+                <img src="{{ asset('assets/images/career.svg') }}" alt="career" class="img-fluid">
             </div>
             <div class="col-md-6 col-sm-12 mt-4">
                 <h2>@lang('carreer.main_title')</h2>
@@ -30,19 +26,25 @@ $locale = App::getLocale();
     </section>
 </div>
 <div class="career-bg-wrapper">
-    <img src="{{asset('assets/images/latar-career.svg')}}" alt="" class="img-fluid">
+    <img src="{{ asset('assets/images/latar-career.svg') }}" alt="" class="img-fluid">
 </div>
 <section class="partner">
     <div class="container">
-        <h2 class="text-center text-white mt-5">@lang('carreer.partner')</h2>
-        <p class="text-center text-white">@lang('carreer.partner_desc')</p>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center text-white">@lang('carreer.partner')</h2>
+            </div>
+            <div class="col-12">
+                <p class="text-center text-white">@lang('carreer.partner_desc')</p>
+            </div>
+        </div>
         <div class="row">
             @foreach ($partner as $item)
-            <div class="col-3 my-3">
-                <div class="card card-partner d-flex align-items-center justify-content-center">
-                    <img src="{{asset('uploads/partner/'.$item->logo)}}" class="card-img-top" alt="">
+                <div class="col-3 my-3">
+                    <div class="card card-partner d-flex align-items-center justify-content-center">
+                        <img src="{{ asset('uploads/partner/' . $item->logo) }}" class="card-img-top" alt="">
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -56,23 +58,25 @@ $locale = App::getLocale();
                 <div class="main">
                     <div class="slider slider-for">
                         @foreach ($testimonial as $item)
-                        <div class="testimonial-wrapper p-sm-3">
-                            <img src="{{asset('uploads/testimonial/'.$item->image)}}"
-                                class="img-fluid testimonial-image" alt="{{$item->title}}">
-                            <div class="testimonial-body mt-3">
-                                <div class="title align-self-center">{{$item->title}}</div>
-                                <blockquote class="quote align-self-center">"{{$item->desc}}" - {{$item->name}}
-                                </blockquote>
+                            <div class="testimonial-wrapper p-sm-3">
+                                <img src="{{ asset('uploads/testimonial/' . $item->image) }}"
+                                    class="img-fluid testimonial-image" alt="{{ $item->title }}">
+                                <div class="testimonial-body mt-3">
+                                    <div class="title align-self-center">{{ $item->title }}</div>
+                                    <blockquote class="quote align-self-center">"{{ $item->desc }}" -
+                                        {{ $item->name }}
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <div class="slider slider-nav mb-5 w-100">
                         @foreach ($testimonial as $item)
-                        <div class="testimonial-wrapper">
-                            <img src="{{asset('uploads/testimonial/'.$item->image)}}"
-                                class="img-fluid testimonial-image" style="cursor: pointer" alt="{{$item->name}}">
-                        </div>
+                            <div class="testimonial-wrapper">
+                                <img src="{{ asset('uploads/testimonial/' . $item->image) }}"
+                                    class="img-fluid testimonial-image" style="cursor: pointer"
+                                    alt="{{ $item->name }}">
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -85,16 +89,17 @@ $locale = App::getLocale();
     <div class="container">
         <div class="row">
             @foreach ($careers as $i)
-            <div class="col-md-3 col-sm-12">
-                <div class="card article-card">
-                    <a href="/blogs/view/{{$i->id}}"><img src="{{asset('uploads/article/').'/'.$i->image}}"
-                            style="background-size: cover;" class="card-img-top" alt=""></a>
-                    <div class="card-body">
-                        <div class="card-title">{{$i->title}}</div>
-                        <p>{{$i->author}}, {!! date('W F Y', strtotime($i->date)) !!}</p>
+                <div class="col-md-3 col-sm-12">
+                    <div class="card article-card">
+                        <a href="/blogs/view/{{ $i->id }}"><img
+                                src="{{ asset('uploads/article/') . '/' . $i->image }}"
+                                style="background-size: cover;" class="card-img-top" alt=""></a>
+                        <div class="card-body">
+                            <div class="card-title">{{ $i->title }}</div>
+                            <p>{{ $i->author }}, {!! date('W F Y', strtotime($i->date)) !!}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -140,5 +145,4 @@ $locale = App::getLocale();
             }
         ]
     });
-
 </script>

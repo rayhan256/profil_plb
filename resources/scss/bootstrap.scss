@@ -55,9 +55,12 @@
 @import "utilities/api";
 // scss-docs-end import-stack
 
+a {
+    text-decoration: none;
+}
+
 section {
-    margin-top: 7%;
-    margin-bottom: 7%;
+    margin: 5% 0;
 }
 
 .btn {

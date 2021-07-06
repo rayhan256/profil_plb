@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizationStructureController;
 use App\Http\Controllers\PartnerController;
@@ -30,12 +31,15 @@ Route::get('{locale}/articles/{id}', [HomeController::class, 'articles']);
 Route::get('/auth/login', [AuthController::class, 'login']);
 Route::prefix('{locale}')->group(function () {
 	Route::get('/', [HomeController::class, 'index']);
+	Route::get('/prodi/{id}', [HomeController::class, 'detail_prodi']);
 	Route::get('/about', [HomeController::class, 'about']);
 	Route::get('/blogs', [HomeController::class, 'blogs']);
 	Route::get('/blogs/search', [HomeController::class, 'searchArticle']);
 	Route::get('/link_and_match', [HomeController::class, 'link_and_match']);
 	Route::get('/career_centre', [HomeController::class, 'career_centre']);
 	Route::get('/gallery', [HomeController::class, 'gallery']);
+	Route::get('/gallery/all', [HomeController::class, 'all_gallery']);
+	Route::get('/gallery/videos', [HomeController::class, 'all_videos']);
 	Route::get('/tridharma', [HomeController::class, 'tridharma']);
 });
 
@@ -66,6 +70,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 		Route::get('/campus/view/{id}', [CampusController::class, 'seeCampus']);
 		Route::post('/campus/update/post', [CampusController::class, 'update_process']);
 		Route::get('/campus/delete/{id}', [CampusController::class, 'delete']);
+
+		// route galleries
+		Route::get('/galleries', [GalleryController::class, 'index']);
+		Route::post('/galleries/add', [GalleryController::class, 'add']);
+		Route::get('/galleries/{id}', [GalleryController::class, 'destroy']);
 
 		// route prodi
 		Route::get('/prodi', [ProdiController::class, 'index']);

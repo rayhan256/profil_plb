@@ -22,7 +22,18 @@
                 <option value="D">D</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="">Description</label>
+            <textarea name="desc" id="" cols="30" rows="10" class="form-control">{{$prodi->desc}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Certificate</label>
+            <input type="file" name="certificate" id="" class="form-control">
+        </div>
         <input type="submit" value="Update" class="btn btn-primary">
     </form>
 </div>
 @include('admin/layouts/footer')
+<script>
+    CKEDITOR.replace('desc')
+</script>
