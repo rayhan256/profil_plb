@@ -9,6 +9,6 @@ class Campus extends Model
 {
     use HasFactory;
     protected $table = 'campus';
-    protected $fillable = ['campus_name', 'call_centre', 'whatsapp', 'email', 'desc', 'hasMI', 'hasAK', 'hasAB', 'hasHUMAS', 'embedded_map'];
+    protected $fillable = ['campus_name', 'call_centre', 'whatsapp', 'email', 'desc', 'embedded_map'];
 
 }

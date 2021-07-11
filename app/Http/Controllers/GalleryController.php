@@ -16,6 +16,7 @@ class GalleryController extends Controller
 
     public function add(Request $req) {
         $file = $req->file('image');
+        $name = $req->input('name');
         $galleries = new Gallery();
         if ($file === null) {
             return redirect()->back()->with('error', 'Image Not Added, Please Fill The Image');
@@ -24,6 +25,7 @@ class GalleryController extends Controller
             $filename = time().".". $file->getClientOriginalExtension();
             $file->move(public_path("/uploads/galleries"), $filename);
             $galleries->image = $filename;
+            $galleries->name = $name;
             $galleries->save();
             return redirect()->back()->with('pesan', "Gallery Added");
         }

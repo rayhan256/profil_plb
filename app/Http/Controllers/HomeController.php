@@ -14,6 +14,7 @@ use App\Models\Testimonial;
 use App\Models\Ukm;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\Test;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,8 @@ class HomeController extends Controller
 
     public function detail_prodi($locale, $id) {
         $prodi = Prodi::find($id);
-        return view('users.Prodi.index', ['prodi' => $prodi]);
+        $testimonial = Testimonial::where('prodi_id' , "=", $id)->get();
+        return view('users.Prodi.index', ['prodi' => $prodi, 'testimonials' => $testimonial]);
     }
 
     public function all_gallery() {

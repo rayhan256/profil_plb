@@ -3,50 +3,26 @@
     <h1 class="mt-4 mb-3">Update Campus</h1>
     <form action="/cms/en/campus/update/post" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="id" value="{{$campus->id}}">
+        <input type="hidden" name="id" value="{{ $campus->id }}">
         <div class="form-group">
             <label for="">Nama Kampus</label>
-            <input type="text" class="form-control" name="campus_name" value="{{$campus->campus_name}}" />
+            <input type="text" class="form-control" name="campus_name" value="{{ $campus->campus_name }}" />
         </div>
         <div class="form-group">
             <label for="">Call Centre</label>
-            <input type="text" class="form-control" name="call_centre" value="{{$campus->call_centre}}" />
+            <input type="text" class="form-control" name="call_centre" value="{{ $campus->call_centre }}" />
         </div>
         <div class="form-group">
             <label for="">Whatsapp</label>
-            <input type="text" class="form-control" name="whatsapp" value="{{$campus->whatsapp}}" />
+            <input type="text" class="form-control" name="whatsapp" value="{{ $campus->whatsapp }}" />
         </div>
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" class="form-control" name="email" value="{{$campus->email}}" />
+            <input type="text" class="form-control" name="email" value="{{ $campus->email }}" />
         </div>
         <div class="form-group">
             <label for="">Deskripsi</label>
-            <textarea name="desc" class="form-control" cols="30" rows="10">{{$campus->desc}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="">Program Studi / Courses</label>
-            <br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasAB[]" id="inlineCheckbox1" value=1 {!!
-                    $campus->hasAB ? "checked" : '' !!}>
-                <label class="form-check-label" for="inlineCheckbox1">Administrasi Bisnis</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasMI[]" id="inlineCheckbox2" value=1 {!!
-                    $campus->hasMI ? "checked" : '' !!}>
-                <label class="form-check-label" for="inlineCheckbox2">Manajemen Informatika</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasAK[]" id="inlineCheckbox3" value=1 {!!
-                    $campus->hasAK ? "checked" : '' !!}>
-                <label class="form-check-label" for="inlineCheckbox3">Akuntansi</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasHUMAS[]" id="inlineCheckbox4" value=1 {!!
-                    $campus->hasHUMAS ? "checked" : '' !!}>
-                <label class="form-check-label" for="inlineCheckbox4">Hubungan Masyarakat</label>
-            </div>
+            <textarea name="desc" class="form-control" cols="30" rows="10">{{ $campus->desc }}</textarea>
         </div>
         <div class="form-group">
             <div class="d-flex justify-content-md-between my-3">
@@ -54,11 +30,11 @@
                 <div class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#panduan">Panduan</div>
             </div>
             <textarea name="embedded_map" id="" cols="30" rows="10"
-                class="form-control">{{$campus->embedded_map}}</textarea>
+                class="form-control">{{ $campus->embedded_map }}</textarea>
         </div>
         <div class="form-group">
             <label for="">Image</label>
-            <input type="file" class="form-control" name="image" value="{{$campus->iaage}}" />
+            <input type="file" class="form-control" name="image" value="{{ $campus->iaage }}" />
         </div>
         <input type="submit" value="Update Campus" class="btn btn-primary mt-3 mb-3">
     </form>
@@ -81,25 +57,26 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search.JPG')}}" alt="First slide"
-                                style="filter: brightness(50%);">
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search.JPG') }}"
+                                alt="First slide" style="filter: brightness(50%);">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Langkah 1</h5>
                                 <p>Lakukan Pencarian Kampus LP3I Yang Dituju, Lalu Pilih Menu <strong>Maps</strong></p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search2.JPG')}}"
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search2.JPG') }}"
                                 alt="Second slide" style="filter: brightness(50%);">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Langkah 2</h5>
                                 <p>Setelah Masuk Pada Halaman <strong>Maps</strong>, Lalu Pilih Menu
-                                    <strong>Share</strong></p>
+                                    <strong>Share</strong>
+                                </p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search3.JPG')}}" alt="Third slide"
-                                style="filter: brightness(50%);">
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search3.JPG') }}"
+                                alt="Third slide" style="filter: brightness(50%);">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Langkah 3</h5>
                                 <p>Setelah Mengklik Menu <strong>Share</strong>, Maka Akan Keluar Pop-up Seperti Gambar

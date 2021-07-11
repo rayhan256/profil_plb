@@ -10,8 +10,8 @@ $index = 0;
                 $index++;
             @endphp
             <div class="carousel-item {{ $index == 1 ? 'active' : '' }}">
-                <img src="{{ asset('uploads/slider/' . $item->filename) }}" class="d-block w-100 carousel-image"
-                    alt="{{ $item->name }}">
+                <img src="{{ asset('uploads/slider/' . $item->filename) }}"
+                    class="d-block w-100 img-fluid carousel-image" alt="{{ $item->name }}">
             </div>
         @endforeach
     </div>
@@ -59,13 +59,7 @@ $index = 0;
             <div class="row">
                 @foreach ($prodi as $item)
                     <div class="col-md-3 col-sm-12">
-                        <a href="/{{ $locale }}/prodi/{{ $item->id }}">
-                            <div class="prodi-home-wrapper">
-                                <div class="h5 prodi-home-title text-center">{{ $item->name }}</div>
-                                <img src="{{ asset('/uploads/prodi/' . $item->image) }}"
-                                    class="img-fluid rounded prodi-icon" alt="{{ $item->image }}">
-                            </div>
-                        </a>
+                        <x-card-prodi :name="$item->name" :image="$item->image" :id="$item->id" isLight=0 />
                     </div>
                 @endforeach
             </div>

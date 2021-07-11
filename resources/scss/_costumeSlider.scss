@@ -3,13 +3,13 @@ $breakpoint-tablet: 768px;
 .carousel {
     .carousel-inner {
         .carousel-item {
-            height: 100vh;
+            height: auto;
+
             .carousel-image {
                 width: 100%;
                 height: auto;
                 filter: brightness(65%);
-                object-fit: fill;
-               
+                object-position: top;
             }
         }
     }

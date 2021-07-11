@@ -24,26 +24,6 @@
             <textarea name="desc" class="form-control" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
-            <label for="">Program Studi / Courses</label>
-            <br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasAB[]" id="inlineCheckbox1" value="1">
-                <label class="form-check-label" for="inlineCheckbox1">Administrasi Bisnis</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasMI[]" id="inlineCheckbox2" value="1">
-                <label class="form-check-label" for="inlineCheckbox2">Manajemen Informatika</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasAK[]" id="inlineCheckbox3" value="1">
-                <label class="form-check-label" for="inlineCheckbox3">Akuntansi</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hasHUMAS[]" id="inlineCheckbox4" value="1">
-                <label class="form-check-label" for="inlineCheckbox4">Hubungan Masyarakat</label>
-            </div>
-        </div>
-        <div class="form-group">
             <div class="d-flex justify-content-md-between my-3">
                 <label for="">Link Map (Baca Panduan Terlebih Dahulu)</label>
                 <div class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#panduan">Panduan</div>
@@ -76,28 +56,31 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search.JPG')}}" alt="First slide"
-                                style="filter: brightness(50%);">
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search.JPG') }}"
+                                alt="First slide" style="filter: brightness(50%);">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Langkah 1</h5>
                                 <p>Lakukan Pencarian Kampus LP3I Yang Dituju, Lalu Pilih Menu <strong>Maps</strong></p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search2.JPG')}}"
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search2.JPG') }}"
                                 alt="Second slide" style="filter: brightness(50%);">
-								<div class="carousel-caption d-none d-md-block">
-									<h5>Langkah 2</h5>
-									<p>Setelah Masuk Pada Halaman <strong>Maps</strong>, Lalu Pilih Menu <strong>Share</strong></p>
-								</div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Langkah 2</h5>
+                                <p>Setelah Masuk Pada Halaman <strong>Maps</strong>, Lalu Pilih Menu
+                                    <strong>Share</strong></p>
+                            </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('admin/assets/img/search3.JPG')}}" alt="Third slide"
-                                style="filter: brightness(50%);">
-								<div class="carousel-caption d-none d-md-block">
-									<h5>Langkah 3</h5>
-									<p>Setelah Mengklik Menu <strong>Share</strong>, Maka Akan Keluar Pop-up Seperti Gambar Berikut, Lalu Pilih <strong>Embed Map</strong> dan klik <strong>Copy Html</strong>. Dan Paste Pada <Strong>Link Map</Strong> yang tersedia di dashboard admin</p>
-								</div>
+                            <img class="d-block w-100" src="{{ asset('admin/assets/img/search3.JPG') }}"
+                                alt="Third slide" style="filter: brightness(50%);">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Langkah 3</h5>
+                                <p>Setelah Mengklik Menu <strong>Share</strong>, Maka Akan Keluar Pop-up Seperti Gambar
+                                    Berikut, Lalu Pilih <strong>Embed Map</strong> dan klik <strong>Copy Html</strong>.
+                                    Dan Paste Pada <Strong>Link Map</Strong> yang tersedia di dashboard admin</p>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -119,7 +102,7 @@
 
 @include('admin/layouts/footer')
 <script>
-    	CKEDITOR.replace('desc', {
+    CKEDITOR.replace('desc', {
         removePlugins: 'image',
     })
 </script>

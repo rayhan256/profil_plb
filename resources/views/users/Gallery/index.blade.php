@@ -14,10 +14,7 @@ $locale = App::getLocale();
         <div class="row">
             @foreach ($galleries as $gallery)
                 <div class="col-md-3 mb-3 col-sm-6">
-                    <a href="{{ asset('uploads/galleries/' . $gallery->image) }}">
-                        <img src="{{ asset('uploads/galleries/' . $gallery->image) }}" class="gallery-image rounded-3"
-                            alt="">
-                    </a>
+                    <x-card-gallery :name="$gallery->name" :image="$gallery->image" />
                 </div>
 
             @endforeach

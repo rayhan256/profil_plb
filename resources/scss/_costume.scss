@@ -1,4 +1,126 @@
-$breakpoint-tablet: 768px;
+.testi-prodi {
+    .carousel {
+        width: 500px;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    .carousel .item {
+        color: #999;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        min-height: 340px;
+    }
+
+    .carousel .item a {
+        color: #eb7245;
+    }
+
+    .carousel .img-box {
+        width: 200px;
+        height: 200px;
+        margin: 30px auto;
+        border-radius: 50%;
+    }
+
+    .carousel .img-box img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 50%;
+    }
+
+    .carousel .testimonial-desc {
+        padding: 30px 0;
+    }
+
+    .testimonial-desc {
+        color: #000000;
+        padding: 0 0 10px;
+    }
+
+    .carousel .overview {
+        text-align: center;
+        padding-bottom: 5px;
+    }
+
+    .carousel .overview b {
+        color: #333;
+        font-size: 15px;
+        text-transform: uppercase;
+        display: block;
+        padding-bottom: 5px;
+    }
+
+    .carousel .star-rating i {
+        font-size: 18px;
+        color: #ffdc12;
+    }
+
+    .carousel .carousel-control {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #999;
+        text-shadow: none;
+        top: 4px;
+    }
+
+    .carousel-control i {
+        font-size: 20px;
+        margin-right: 2px;
+    }
+
+    .carousel-control.left {
+        left: auto;
+        right: 40px;
+    }
+
+    .carousel-control.right i {
+        margin-right: -2px;
+    }
+
+    .carousel .carousel-indicators {
+        bottom: 15px;
+    }
+
+    .carousel-indicators li,
+    .carousel-indicators li.active {
+        width: 11px;
+        height: 11px;
+        margin: 1px 5px;
+        border-radius: 50%;
+    }
+
+    .carousel-indicators li {
+        background: #e2e2e2;
+        border-color: transparent;
+    }
+
+    .carousel-indicators li.active {
+        border: none;
+        background: #888;
+    }
+}
+
+.left-prodi-wrapper {
+    position: relative;
+    .main-prodi-detail {
+    }
+}
+
+.testi-wrapper {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+
+    img {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+}
 
 .gallery-title-wrapper {
     width: 100%;
@@ -9,6 +131,35 @@ $breakpoint-tablet: 768px;
     .gallery-link {
         font-size: 18px;
         margin-top: 5px;
+    }
+}
+
+.card-gallery-wrapper {
+    position: relative;
+
+    .image-name {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 185px;
+        height: 40px;
+        color: white;
+        background-color: $primary;
+        border-radius: 0 0 30px 0;
+        text-align: center;
+        padding: 10px 0;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .gallery-image {
+        filter: brightness(70%);
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            filter: brightness(100%);
+        }
     }
 }
 
@@ -24,12 +175,6 @@ $breakpoint-tablet: 768px;
 .gallery-image {
     width: 100%;
     height: 250px;
-}
-
-@media (max-width: $breakpoint-tablet) {
-    .gallery-link {
-        font-size: 15px !important;
-    }
 }
 
 .header {
@@ -68,12 +213,12 @@ $breakpoint-tablet: 768px;
     width: 100%;
     padding: 10px;
     .prodi-home-title {
-        margin: .8em 0;
+        margin: 0.8em 0;
     }
 
     .prodi-icon {
         filter: brightness(30%);
-        transition: .3s ease;
+        transition: 0.3s ease;
         align-self: center;
         margin: 0 auto;
         cursor: pointer;
@@ -142,7 +287,7 @@ $breakpoint-tablet: 768px;
                 width: 200px;
                 object-fit: contain;
                 object-position: center;
-                transition: .3s ease-in-out;
+                transition: 0.3s ease-in-out;
                 filter: brightness(20%);
 
                 &:hover {
@@ -380,14 +525,6 @@ $breakpoint-tablet: 768px;
     color: $gray-500;
 }
 
-@media (min-width: 768px) {
-    .footer-bs .footer-nav,
-    .footer-bs .footer-social,
-    .footer-bs .footer-ns {
-        border-left: solid 1px rgba(255, 255, 255, 0.1);
-    }
-}
-
 .parent-vision-mission {
     .list-vision-mission {
         margin: 0.5em 0;
@@ -409,167 +546,4 @@ $breakpoint-tablet: 768px;
 
 ul {
     justify-content: center;
-}
-
-@media (max-width: $breakpoint-tablet) {
-    .prodi-icon {
-        filter: brightness(30%);
-        transition: .3s ease;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
-        object-position: center;
-
-        &:hover {
-            filter: brightness(100%);
-        }
-    }
-
-    .arrows {
-        display: none;
-    }
-    .prodi {
-        .prodi-wrapper {
-            display: none;
-        }
-
-        .main {
-            width: 100%;
-            display: block;
-            margin: 0 auto;
-            max-height: 500px;
-
-            .testimonial-wrapper {
-                width: 100%;
-                max-height: 500px;
-
-                .testimonial-image {
-                    width: 150px;
-                    height: 150px;
-                    border-radius: 360px;
-                    object-fit: cover;
-                    margin: 0 auto;
-                }
-
-                .testimonial-body {
-                    text-align: center;
-                    color: #fafafa;
-                    .title {
-                        font-weight: bold;
-                        font-size: 18px;
-
-                        &for {
-                            font-size: 14px;
-                        }
-                    }
-
-                    .quote {
-                        font-style: italic;
-                        font-size: 14px;
-                        font-weight: lighter;
-
-                        &for {
-                            font-size: 12px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .wrapper-education {
-        background-image: url("/assets/images/latar-mobile.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 47vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-
-        .education-text-wrapper {
-            margin-top: 50%;
-            margin-left: 1em;
-            padding-left: 5rem;
-            padding-right: 5rem;
-            text-align: center;
-            color: white;
-            h1 {
-                font-size: 14px;
-            }
-            p {
-                font-size: 10px;
-                color: white;
-            }
-
-            .btn {
-                display: none;
-            }
-        }
-    }
-
-    .testimonial {
-        margin: 0;
-        background-color: #50653b;
-        min-height: 300px;
-        border-radius: 0 0 50px 50px;
-
-        .testimonial-wrapper {
-            width: 100%;
-            max-height: 500px;
-
-            .testimonial-image {
-                width: 150px;
-                height: 150px;
-                border-radius: 360px;
-                object-fit: cover;
-                margin: 0 auto;
-            }
-
-            .testimonial-body {
-                text-align: center;
-                color: #fafafa;
-                .title {
-                    font-weight: bold;
-                    font-size: 18px;
-
-                    &for {
-                        font-size: 14px;
-                    }
-                }
-
-                .quote {
-                    font-style: italic;
-                    font-size: 14px;
-                    font-weight: lighter;
-
-                    &for {
-                        font-size: 12px;
-                    }
-                }
-            }
-        }
-    }
-
-    .wrapper {
-        margin: 0 !important;
-        width: 100%;
-    }
-    .header-title {
-        margin-top: 1%;
-    }
-    .hero-image {
-        display: none;
-    }
-    .header-image-wrapper {
-        display: none;
-    }
-
-    .sejarah-image {
-        display: none;
-    }
-
-    .carousel-inner {
-        height: auto !important;
-    }
 }

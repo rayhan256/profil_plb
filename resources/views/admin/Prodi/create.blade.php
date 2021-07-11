@@ -25,6 +25,10 @@
             <textarea name="desc" id="" cols="30" rows="10" class="form-control"></textarea>
         </div>
         <div class="form-group">
+            <label for="">Potensi Karir</label>
+            <textarea name="potensi_karir" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group">
             <label for="">Certificate</label>
             <input type="file" name="certificate" class="form-control">
         </div>
@@ -34,5 +38,5 @@
 @include('admin/layouts/footer')
 <script>
     CKEDITOR.replace('desc')
-
+    CKEDITOR.replace('potensi_karir')
 </script>

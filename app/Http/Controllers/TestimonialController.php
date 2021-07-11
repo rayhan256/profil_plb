@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prodi;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -15,7 +16,8 @@ class TestimonialController extends Controller
     }
     public function create()
     {
-        return view('admin.Testimonial.create');
+        $prodi = Prodi::all();
+        return view('admin.Testimonial.create', ['prodi' => $prodi]);
     }
 
     public function insert(Request $req)
@@ -25,6 +27,7 @@ class TestimonialController extends Controller
         $desc = $req->input('desc');
         $image = $req->file('image');
         $position = $req->input('position');
+        $id_prodi = $req->input('id_prodi');
 
         $testi = new Testimonial();
 
@@ -37,6 +40,7 @@ class TestimonialController extends Controller
             $testi->desc = $desc;
             $testi->image = $filename;
             $testi->position = $position;
+           $testi->prodi_id = $id_prodi;
             $testi->save();
 
             return redirect('/cms/en/testimonial')->with('pesan', 'Testimonial Created');
@@ -46,7 +50,8 @@ class TestimonialController extends Controller
     public function update($id)
     {
         $testi = Testimonial::find($id);
-        return view('admin.Testimonial.update', ['testi' => $testi]);
+        $prodi = Prodi::all();
+        return view('admin.Testimonial.update', ['testi' => $testi, 'prodi' => $prodi]);
     }
 
     public function update_process(Request $req)
@@ -55,6 +60,7 @@ class TestimonialController extends Controller
         $title = $req->input('title');
         $name = $req->input('name');
         $desc = $req->input('desc');
+        $id_prodi = $req->input('id_prodi');
         $image = $req->file('image');
         $position = $req->input('position');
 
@@ -65,36 +71,31 @@ class TestimonialController extends Controller
             if (File::exists($oldFile)) {
                 $filename = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path("/uploads/testimonial"), $filename);
-
-                $testi->title = $title ? $title : $testi->title;
-                $testi->name = $name ? $name : $testi->name;
-                $testi->desc = $desc ? $desc : $testi->desc;
                 $testi->image = $filename;
-                $testi->position = $position ? $position : $testi->position;
                 $testi->save();
                 File::delete($oldFile);
             }
-        } else {
-            $testi->title = $title ? $title : $testi->title;
-            $testi->name = $name ? $name : $testi->name;
-            $testi->desc = $desc ? $desc : $testi->desc;
-            $testi->image = $testi->image;
-            $testi->position = $position ? $position : $testi->position;
-            $testi->save();
-        }
+        } 
 
+        $testi->title = $title ? $title : $testi->title;
+        $testi->name = $name ? $name : $testi->name;
+        $testi->desc = $desc ? $desc : $testi->desc;
+        $testi->image = $testi->image;
+        $testi->position = $position ? $position : $testi->position;
+       $testi->prodi_id = $id_prodi ? $id_prodi :$testi->prodi_id;
+        $testi->save();
         return redirect('/cms/en/testimonial')->with('pesan', 'Testimonial Updated');
     }
 
     public function delete($id)
     {
         $testi = Testimonial::find($id);
-        $filename = asset("uploads/testimonial/" . $testi->image);
+        $filename = asset("/uploads/testimonial/" . $testi->image);
         if (File::exists($filename)) {
             File::delete($filename);
-            $testi->delete();
+            
         }
-
+        $testi->delete();
         return redirect('/cms/en/testimonial')->with('pesan', 'Testimony Deleted');
     }
 }

@@ -32,10 +32,6 @@ class CampusController extends Controller
         $campus->email = $req->input('email');
         $campus->desc = $req->input('desc');
         $campus->image = $imageName;
-        $campus->hasAB = $req->input('hasAB') ? true : false;
-        $campus->hasAK = $req->input('hasAK') ? true : false;
-        $campus->hasMI = $req->input('hasMI') ? true : false;
-        $campus->hasHUMAS = $req->input('hasHUMAS') ? true : false;
         $campus->embedded_map = $req->input('embedded_map');
         $campus->save();
 
@@ -74,33 +70,16 @@ class CampusController extends Controller
             $foto = $req->file('image');
             $newFileName = time() . '.' . $foto->getClientOriginalExtension();
             $foto->move(public_path("/uploads/campus"), $newFileName);
-
-            $campus->campus_name = $campus_name ? $campus_name : $campus->campus_name;
-            $campus->call_centre = $call_centre ? $call_centre : $campus->call_centre;
-            $campus->whatsapp = $whatsapp ? $whatsapp : $campus->whatsapp;
-            $campus->email = $email ? $email : $campus->email;
-            $campus->desc = $desc ? $desc : $campus->desc;
             $campus->image = $newFileName ? $newFileName : $campus->image;
-            $campus->hasAB = $req->input('hasAB') ? intval($req->input('hasAB')) : 0;
-            $campus->hasAK = $req->input('hasAK') ? intval($req->input('hasAK')) : 0;
-            $campus->hasMI = $req->input('hasMI') ? intval($req->input('hasMI')) : 0;
-            $campus->hasHUMAS = $req->input('hasHUMAS') ? intval($req->input('hasHUMAS')) : 0;
-            $campus->embedded_map = $req->input('embedded_map') ? $req->input('embedded_map') : $campus->embedded_map;
-            $campus->save();
-        } else {
+           
+        } 
             $campus->campus_name = $campus_name ? $campus_name : $campus->campus_name;
             $campus->call_centre = $call_centre ? $call_centre : $campus->call_centre;
             $campus->whatsapp = $whatsapp ? $whatsapp : $campus->whatsapp;
             $campus->email = $email ? $email : $campus->email;
             $campus->desc = $desc ? $desc : $campus->desc;
-            $campus->image = $campus->image;
-            $campus->hasAB = $req->input('hasAB') ? intval($req->input('hasAB')) : 0;
-            $campus->hasAK = $req->input('hasAK') ? intval($req->input('hasAK')) : 0;
-            $campus->hasMI = $req->input('hasMI') ? intval($req->input('hasMI')) : 0;
-            $campus->hasHUMAS = $req->input('hasHUMAS') ? intval($req->input('hasHUMAS')) : 0;
             $campus->embedded_map = $req->input('embedded_map') ? $req->input('embedded_map') : $campus->embedded_map;
             $campus->save();
-        }
 
         return redirect('/cms/en/campus')->with('pesan', 'Campus Updated');
 

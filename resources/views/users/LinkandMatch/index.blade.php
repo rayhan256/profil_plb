@@ -31,7 +31,8 @@ $locale = App::getLocale();
             <div class="education-text-wrapper">
                 <h1>@lang('linkandmatch.sure_title')</h1>
                 <p>@lang('linkandmatch.sure_content')</p>
-                <a href="" class="btn btn-primary">@lang('linkandmatch.sure_button')</a>
+                <a href="/{{ $locale }}/career_centre"
+                    class="btn btn-primary">@lang('linkandmatch.sure_button')</a>
             </div>
         </div>
     </div>
@@ -42,13 +43,7 @@ $locale = App::getLocale();
         <div class="row prodi-wrapper">
             @foreach ($prodi as $item)
                 <div class="col-md-3 col-sm-12">
-                    <div class="card">
-                        <img src="{{ asset('uploads/prodi/' . $item->image) }}" alt="" class="card-img-top">
-                        <div class="card-body text-center">
-                            <div class="card-title h5">{{ $item->name }}</div>
-                            <div class="card-text">Akreditasi {{ $item->akreditasi }}</div>
-                        </div>
-                    </div>
+                    <x-card-prodi :name="$item->name" :image="$item->image" :id="$item->id" isLight />
                 </div>
             @endforeach
         </div>

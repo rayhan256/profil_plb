@@ -5985,6 +5985,108 @@ textarea.form-control-lg {
             animation-duration: 1.5s;
   }
 }
+.testi-prodi .carousel {
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.testi-prodi .carousel .item {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 340px;
+}
+.testi-prodi .carousel .item a {
+  color: #eb7245;
+}
+.testi-prodi .carousel .img-box {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  border-radius: 50%;
+}
+.testi-prodi .carousel .img-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.testi-prodi .carousel .testimonial-desc {
+  padding: 30px 0;
+}
+.testi-prodi .testimonial-desc {
+  color: #000000;
+  padding: 0 0 10px;
+}
+.testi-prodi .carousel .overview {
+  text-align: center;
+  padding-bottom: 5px;
+}
+.testi-prodi .carousel .overview b {
+  color: #333;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: block;
+  padding-bottom: 5px;
+}
+.testi-prodi .carousel .star-rating i {
+  font-size: 18px;
+  color: #ffdc12;
+}
+.testi-prodi .carousel .carousel-control {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #999;
+  text-shadow: none;
+  top: 4px;
+}
+.testi-prodi .carousel-control i {
+  font-size: 20px;
+  margin-right: 2px;
+}
+.testi-prodi .carousel-control.left {
+  left: auto;
+  right: 40px;
+}
+.testi-prodi .carousel-control.right i {
+  margin-right: -2px;
+}
+.testi-prodi .carousel .carousel-indicators {
+  bottom: 15px;
+}
+.testi-prodi .carousel-indicators li,
+.testi-prodi .carousel-indicators li.active {
+  width: 11px;
+  height: 11px;
+  margin: 1px 5px;
+  border-radius: 50%;
+}
+.testi-prodi .carousel-indicators li {
+  background: #e2e2e2;
+  border-color: transparent;
+}
+.testi-prodi .carousel-indicators li.active {
+  border: none;
+  background: #888;
+}
+
+.left-prodi-wrapper {
+  position: relative;
+}
+.testi-wrapper {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.testi-wrapper img {
+  width: 200px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .gallery-title-wrapper {
   width: 100%;
   display: flex;
@@ -5994,6 +6096,32 @@ textarea.form-control-lg {
 .gallery-title-wrapper .gallery-link {
   font-size: 18px;
   margin-top: 5px;
+}
+
+.card-gallery-wrapper {
+  position: relative;
+}
+.card-gallery-wrapper .image-name {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 185px;
+  height: 40px;
+  color: white;
+  background-color: #063173;
+  border-radius: 0 0 30px 0;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 13px;
+}
+.card-gallery-wrapper .gallery-image {
+  filter: brightness(70%);
+  transition: 0.3s ease-in-out;
+}
+.card-gallery-wrapper .gallery-image:hover {
+  filter: brightness(100%);
 }
 
 .all-gallery-image {
@@ -6010,11 +6138,6 @@ textarea.form-control-lg {
   height: 250px;
 }
 
-@media (max-width: 768px) {
-  .gallery-link {
-    font-size: 15px !important;
-  }
-}
 .header .navbar {
   background: transparent;
   position: absolute;
@@ -6357,13 +6480,6 @@ textarea.form-control-lg {
   color: #adb5bd;
 }
 
-@media (min-width: 768px) {
-  .footer-bs .footer-nav,
-.footer-bs .footer-social,
-.footer-bs .footer-ns {
-    border-left: solid 1px rgba(255, 255, 255, 0.1);
-  }
-}
 .parent-vision-mission .list-vision-mission {
   margin: 0.5em 0;
 }
@@ -6387,6 +6503,24 @@ ul {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .testi-prodi .carousel {
+    width: 100vw;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+
+  .gallery-link {
+    font-size: 15px !important;
+  }
+}
+@media (min-width: 768px) {
+  .footer-bs .footer-nav,
+.footer-bs .footer-social,
+.footer-bs .footer-ns {
+    border-left: solid 1px rgba(255, 255, 255, 0.1);
+  }
+}
 @media (max-width: 768px) {
   .prodi-icon {
     filter: brightness(30%);
@@ -6540,14 +6674,14 @@ ul {
   }
 }
 .carousel .carousel-inner .carousel-item {
-  height: 100vh;
+  height: auto;
 }
 .carousel .carousel-inner .carousel-item .carousel-image {
   width: 100%;
   height: auto;
   filter: brightness(65%);
-  -o-object-fit: fill;
-     object-fit: fill;
+  -o-object-position: top;
+     object-position: top;
 }
 
 @media (max-width: 768px) {
@@ -6682,7 +6816,6 @@ ul {
 }
 
 .sticky-top {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1020;
@@ -6690,7 +6823,6 @@ ul {
 
 @media (min-width: 576px) {
   .sticky-sm-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6698,7 +6830,6 @@ ul {
 }
 @media (min-width: 768px) {
   .sticky-md-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6706,7 +6837,6 @@ ul {
 }
 @media (min-width: 992px) {
   .sticky-lg-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6714,7 +6844,6 @@ ul {
 }
 @media (min-width: 1200px) {
   .sticky-xl-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6722,7 +6851,6 @@ ul {
 }
 @media (min-width: 1400px) {
   .sticky-xxl-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -6882,7 +7010,6 @@ ul {
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 

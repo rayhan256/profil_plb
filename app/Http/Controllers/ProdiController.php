@@ -30,6 +30,7 @@ class ProdiController extends Controller
         $name = $req->input('name');
         $akreditasi = $req->input('akreditasi');
         $desc = $req->input('desc');
+        $potensi_karir = $req->input('potensi_karir');
         $prodi = new Prodi();
 
         if ($req->hasFile('image')) {
@@ -43,6 +44,7 @@ class ProdiController extends Controller
             $prodi->image = $filename;
             $prodi->akreditasi = $akreditasi;
             $prodi->desc = $desc;
+            $prodi->potensi_karir = $potensi_karir;
             $prodi->certificate = $certificate_name;
             $prodi->save();
             return redirect('cms/en/prodi')->with('pesan', 'Course Added');
@@ -56,6 +58,7 @@ class ProdiController extends Controller
         $id = $req->input('id');
         $name = $req->input('name');
         $akreditasi = $req->input('akreditasi');
+        $potensi_karir = $req->input('potensi_karir');
         $desc = $req->input('desc');
         $prodi = Prodi::find($id);
 
@@ -84,6 +87,7 @@ class ProdiController extends Controller
             $prodi->name = $name ?? $prodi->name;
             $prodi->akreditasi = $akreditasi ?? $prodi->akreditasi;
             $prodi->desc = $desc ?? $prodi->desc;
+            $prodi->potensi_karir = $potensi_karir;
             $prodi->save();
         
         return redirect('/cms/en/prodi')->with('pesan', 'Course Updated');
