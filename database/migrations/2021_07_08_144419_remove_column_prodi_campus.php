@@ -15,10 +15,10 @@ class RemoveColumnProdiCampus extends Migration
     {
         Schema::table('campus', function (Blueprint $table) {
             //
-            $table->dropColumn('hasAk');
-            $table->dropColumn('hasMI');
-            $table->dropColumn('hasAB');
-            $table->dropColumn('hasHUMAS');
+            // $table->dropColumn('hasAk');
+            // $table->dropColumn('hasMI');
+            // $table->dropColumn('hasAB');
+            // $table->dropColumn('hasHUMAS');
         });
     }
 
