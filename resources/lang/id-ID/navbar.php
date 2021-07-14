@@ -2,7 +2,7 @@
 return [
 	"home" => "Beranda",
 	"about" => "Tentang",
-	"article" => "Artikel",
+	"article" => "Kegiatan",
 	"education" => "Pendidikan",
 	"gallery" => "Galleri",
 	"carrier_centre" => "Pusat Karir",
