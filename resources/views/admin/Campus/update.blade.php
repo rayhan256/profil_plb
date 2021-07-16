@@ -102,3 +102,6 @@
     </div>
 </div>
 @include('admin/layouts/footer')
+<script>
+    CKEDITOR.replace('desc')
+</script>

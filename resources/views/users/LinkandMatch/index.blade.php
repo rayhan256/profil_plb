@@ -75,8 +75,7 @@ $locale = App::getLocale();
             @foreach ($ukm as $item)
                 <div class="col-md-3 col-sm-6">
                     <div class="card bg-transparent my-3">
-                        <img src="{{ asset('uploads/' . $item->image) }}" alt="" class="card-img-top"
-                            style="object-fit: cover;">
+                        <img src="{{ asset('uploads/' . $item->image) }}" alt="" class="card-img-top">
                         <div class="card-body mt-3">
                             <div class="card-title"><strong>{{ $item->name }}</strong></div>
                             <p class="card-text m-0">{!! $item->desc !!}</p>
